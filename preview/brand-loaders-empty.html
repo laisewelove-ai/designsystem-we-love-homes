@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--wlh-sand-cream);color:var(--wlh-deep-petrol);}
+  .frame{padding:24px;display:flex;flex-direction:column;gap:22px;}
+  h2{font-family:var(--font-heading);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 8px;}
+  h2 small{font-weight:500;opacity:0.55;letter-spacing:0.06em;text-transform:none;margin-left:6px;}
+  .row{display:grid;gap:14px;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:1fr 1fr;}
+  .item{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;}
+  .stage{min-height:160px;display:flex;align-items:center;justify-content:center;background:var(--wlh-sand-cream);border-radius:10px;padding:14px;}
+  .nm{font-family:var(--font-heading);font-size:11px;font-weight:700;letter-spacing:0.06em;}
+  .desc{font-family:var(--font-body);font-size:10px;color:var(--fg-muted);line-height:1.5;}
+
+  /* === Loaders === */
+  /* Umbrella spinner */
+  .umbrella-loader{width:64px;height:64px;animation:spin 1.6s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* Dots loader */
+  .dots{display:flex;gap:8px;}
+  .dots span{width:12px;height:12px;border-radius:50%;background:var(--wlh-sun-yellow);animation:bounce 1.2s ease-in-out infinite;}
+  .dots span:nth-child(2){background:var(--wlh-deep-petrol);animation-delay:0.15s;}
+  .dots span:nth-child(3){background:var(--wlh-cactus-green);animation-delay:0.3s;}
+  @keyframes bounce{0%,80%,100%{transform:scale(0.6);opacity:0.4;} 40%{transform:scale(1);opacity:1;}}
+
+  /* House pulse */
+  .house-pulse{position:relative;width:64px;height:64px;display:flex;align-items:center;justify-content:center;}
+  .house-pulse svg{width:48px;height:48px;animation:pulse 1.6s ease-in-out infinite;}
+  .house-pulse::before{content:"";position:absolute;inset:0;border:2px solid var(--wlh-sun-yellow);border-radius:50%;animation:ring 1.6s ease-out infinite;}
+  @keyframes pulse{0%,100%{transform:scale(1);} 50%{transform:scale(0.92);}}
+  @keyframes ring{0%{transform:scale(0.8);opacity:1;} 100%{transform:scale(1.4);opacity:0;}}
+
+  /* === Skeletons === */
+  .skel{background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px;}
+  .sk-photo{aspect-ratio:4/3;border-radius:10px;background:linear-gradient(90deg,#F0E5C9 0%,#FAF1DE 50%,#F0E5C9 100%);background-size:200% 100%;animation:shimmer 1.6s infinite linear;}
+  .sk-line{height:10px;border-radius:6px;background:linear-gradient(90deg,#F0E5C9 0%,#FAF1DE 50%,#F0E5C9 100%);background-size:200% 100%;animation:shimmer 1.6s infinite linear;}
+  .sk-line.short{width:50%;}
+  .sk-line.tall{height:14px;}
+  .sk-circle{width:40px;height:40px;border-radius:50%;background:linear-gradient(90deg,#F0E5C9 0%,#FAF1DE 50%,#F0E5C9 100%);background-size:200% 100%;animation:shimmer 1.6s infinite linear;}
+  @keyframes shimmer{0%{background-position:200% 0;} 100%{background-position:-200% 0;}}
+
+  .skel-row{display:flex;gap:10px;align-items:center;}
+
+  /* === Empty states === */
+  .empty{text-align:center;padding:8px 4px;display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .empty .ill{width:140px;height:120px;display:flex;align-items:center;justify-content:center;}
+  .empty h4{font-family:var(--font-heading);font-size:14px;font-weight:800;margin:0;}
+  .empty p{font-family:var(--font-body);font-size:11px;color:var(--fg-muted);margin:0;line-height:1.5;}
+  .empty .cta{margin-top:6px;font-family:var(--font-heading);font-weight:700;font-size:11px;letter-spacing:0.06em;background:var(--wlh-sun-yellow);color:var(--wlh-deep-petrol);padding:8px 14px;border-radius:999px;}
+
+  /* === Progress === */
+  .progress{width:100%;height:6px;background:#E8DEC8;border-radius:999px;overflow:hidden;}
+  .progress > div{height:100%;background:var(--wlh-sun-yellow);border-radius:999px;animation:fill 2.4s ease-in-out infinite;}
+  @keyframes fill{0%{width:5%;} 50%{width:85%;} 100%{width:100%;}}
+
+  /* Image lazy load shimmer over photo */
+  .lazy{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:#E8DEC8;}
+  .lazy::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.55) 50%,transparent 100%);animation:shimmer 1.4s infinite linear;background-size:200% 100%;}
+</style></head>
+<body><div class="frame">
+
+<section>
+  <h2>11.1 · Loaders</h2>
+  <div class="row grid-3">
+
+    <div class="item">
+      <div class="stage">
+        <svg class="umbrella-loader" viewBox="0 0 64 64" fill="#FFC533" stroke="#1F3A4D" stroke-width="2">
+          <path d="M32 8 C16 8 6 22 6 30 L58 30 C58 22 48 8 32 8 Z"/>
+          <path d="M32 30 L32 54 Q32 60 38 60 Q42 60 42 56" fill="none" stroke="#1F3A4D" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="nm">Spinner — guarda-chuva</div>
+      <div class="desc">Loader principal · usa o ícone signature girando · momentos longos</div>
+    </div>
+
+    <div class="item">
+      <div class="stage"><div class="dots"><span></span><span></span><span></span></div></div>
+      <div class="nm">Loader — três pontinhos</div>
+      <div class="desc">Loaders inline · botão carregando · "digitando"</div>
+    </div>
+
+    <div class="item">
+      <div class="stage">
+        <div class="house-pulse">
+          <svg viewBox="0 0 64 64" fill="#FFC533" stroke="#1F3A4D" stroke-width="3"><path d="M32 6 L8 26 L14 26 L14 56 L50 56 L50 26 L56 26 Z"/></svg>
+        </div>
+      </div>
+      <div class="nm">Loader — casinha pulse</div>
+      <div class="desc">Splash de boot · transição entre páginas grandes</div>
+    </div>
+
+    <div class="item" style="grid-column:1/-1;">
+      <div class="stage" style="padding:24px;">
+        <div style="width:80%;display:flex;flex-direction:column;gap:8px;">
+          <div style="font-family:var(--font-heading);font-size:11px;font-weight:600;color:var(--fg-muted);">Carregando 12 apartamentos em El Golf…</div>
+          <div class="progress"><div></div></div>
+        </div>
+      </div>
+      <div class="nm">Progress bar — yellow + sand</div>
+      <div class="desc">Upload de fotos · processamento de busca · check-in</div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>11.2 · Skeletons <small>placeholder shimmer enquanto carrega</small></h2>
+  <div class="row grid-3">
+
+    <div class="skel">
+      <div class="sk-photo"></div>
+      <div class="sk-line tall"></div>
+      <div class="sk-line short"></div>
+      <div class="skel-row" style="justify-content:space-between;">
+        <div class="sk-line" style="width:40%;height:8px;"></div>
+        <div class="sk-line" style="width:25%;height:14px;"></div>
+      </div>
+    </div>
+
+    <div class="skel">
+      <div class="skel-row">
+        <div class="sk-circle"></div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+          <div class="sk-line" style="width:60%;"></div>
+          <div class="sk-line short" style="height:8px;"></div>
+        </div>
+      </div>
+      <div class="sk-line"></div>
+      <div class="sk-line"></div>
+      <div class="sk-line short"></div>
+    </div>
+
+    <div class="skel">
+      <div class="lazy"></div>
+      <div class="sk-line tall" style="width:70%;"></div>
+      <div class="sk-line short"></div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>11.3 · Empty states <small>nada aqui, e está tudo bem</small></h2>
+  <div class="row grid-3">
+
+    <div class="item">
+      <div class="stage">
+        <div class="empty">
+          <div class="ill">
+            <svg viewBox="0 0 140 120" width="100%" height="100%">
+              <circle cx="55" cy="55" r="38" fill="#FAF1DE" stroke="#1F3A4D" stroke-width="3"/>
+              <line x1="82" y1="82" x2="115" y2="115" stroke="#1F3A4D" stroke-width="6" stroke-linecap="round"/>
+              <path d="M40 55 L55 42 L70 55" stroke="#1F3A4D" stroke-width="2.5" fill="none"/>
+            </svg>
+          </div>
+          <h4>Nenhuma casa encontrada</h4>
+          <p>Tente ampliar suas datas ou explorar destinos próximos.</p>
+          <span class="cta">Ver sugestões</span>
+        </div>
+      </div>
+      <div class="nm">Busca sem resultados</div>
+      <div class="desc">Compass · "tente outra rota"</div>
+    </div>
+
+    <div class="item">
+      <div class="stage">
+        <div class="empty">
+          <div class="ill">
+            <svg viewBox="0 0 140 120" width="100%" height="100%">
+              <path d="M40 90 L40 50 L70 28 L100 50 L100 90 Z" fill="#FFC533" stroke="#1F3A4D" stroke-width="3"/>
+              <path d="M30 55 L70 22 L110 55" fill="none" stroke="#1F3A4D" stroke-width="3" stroke-linecap="round"/>
+              <path d="M55 70 q15 -10 30 0" fill="none" stroke="#1F3A4D" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="60" cy="60" r="2" fill="#1F3A4D"/>
+              <circle cx="80" cy="60" r="2" fill="#1F3A4D"/>
+            </svg>
+          </div>
+          <h4>Sua lista está vazia</h4>
+          <p>Salve casas com ♡ para revisitar e comparar depois.</p>
+          <span class="cta">Explorar</span>
+        </div>
+      </div>
+      <div class="nm">Favoritos vazio</div>
+      <div class="desc">Casinha sorrindo · gentil</div>
+    </div>
+
+    <div class="item">
+      <div class="stage">
+        <div class="empty">
+          <div class="ill">
+            <svg viewBox="0 0 140 120" width="100%" height="100%">
+              <rect x="35" y="50" width="70" height="40" rx="20" fill="#FFC533" stroke="#1F3A4D" stroke-width="3"/>
+              <line x1="35" y1="68" x2="105" y2="68" stroke="#1F3A4D" stroke-width="3"/>
+              <rect x="65" y="90" width="10" height="22" fill="#1F3A4D"/>
+              <text x="40" y="34" font-family="Lufga,sans-serif" font-size="20" font-weight="800" fill="#1F3A4D">Z</text>
+              <text x="28" y="50" font-family="Lufga,sans-serif" font-size="14" font-weight="800" fill="#1F3A4D" opacity="0.6">z</text>
+              <path d="M65 80 q5 -3 10 0" stroke="#1F3A4D" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h4>Inbox em paz</h4>
+          <p>Sem mensagens novas. A gente avisa assim que chegar uma.</p>
+        </div>
+      </div>
+      <div class="nm">Inbox vazio</div>
+      <div class="desc">Caixa de correio dormindo</div>
+    </div>
+
+  </div>
+</section>
+
+</div></body></html>

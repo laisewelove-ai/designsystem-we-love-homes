@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--wlh-sand-cream);color:var(--wlh-deep-petrol);}
+  .frame{padding:24px;display:flex;flex-direction:column;gap:22px;}
+  h2{font-family:var(--font-heading);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 8px;}
+  h2 small{font-weight:500;opacity:0.55;letter-spacing:0.06em;text-transform:none;margin-left:6px;}
+
+  .palette{display:flex;gap:8px;flex-wrap:wrap;background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px;}
+  .swatch{display:flex;flex-direction:column;gap:6px;}
+  .swatch .chip{width:64px;height:64px;border-radius:10px;}
+  .swatch .nm{font-family:var(--font-heading);font-size:10px;font-weight:700;}
+  .swatch .hex{font-family:ui-monospace,monospace;font-size:9px;color:var(--fg-muted);}
+
+  .charts{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .chart{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;}
+  .chart h4{font-family:var(--font-heading);font-size:12px;font-weight:700;margin:0 0 4px;}
+  .chart .sub{font-family:var(--font-body);font-size:10px;color:var(--fg-muted);margin-bottom:14px;}
+  .axis{font-family:var(--font-heading);font-size:9px;fill:var(--fg-muted);}
+  .gridline{stroke:rgba(31,58,77,0.08);stroke-width:1;}
+
+  .legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;}
+  .legend div{display:flex;align-items:center;gap:5px;font-family:var(--font-heading);font-size:10px;}
+  .legend i{width:10px;height:10px;border-radius:3px;display:inline-block;}
+
+  .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .kpi .card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px;}
+  .kpi .lab{font-family:var(--font-heading);font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-muted);}
+  .kpi .val{font-family:var(--font-heading);font-size:24px;font-weight:800;letter-spacing:-0.02em;margin-top:4px;}
+  .kpi .delta{font-family:var(--font-heading);font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:3px;margin-top:4px;}
+  .kpi .up{color:var(--wlh-cactus-green);}
+  .kpi .down{color:#C13B2E;}
+  .spark{width:100%;height:32px;margin-top:8px;}
+</style></head>
+<body><div class="frame">
+
+<section>
+  <h2>10.1 · Paleta de séries <small>ordem de uso em gráficos</small></h2>
+  <div class="palette">
+    <div class="swatch"><div class="chip" style="background:#FFC533;"></div><div class="nm">Sun</div><div class="hex">#FFC533</div></div>
+    <div class="swatch"><div class="chip" style="background:#1F3A4D;"></div><div class="nm">Petrol</div><div class="hex">#1F3A4D</div></div>
+    <div class="swatch"><div class="chip" style="background:#5A8A6B;"></div><div class="nm">Cactus</div><div class="hex">#5A8A6B</div></div>
+    <div class="swatch"><div class="chip" style="background:#5C8AA6;"></div><div class="nm">Info</div><div class="hex">#5C8AA6</div></div>
+    <div class="swatch"><div class="chip" style="background:#E89028;"></div><div class="nm">Amber</div><div class="hex">#E89028</div></div>
+    <div class="swatch"><div class="chip" style="background:#B5D4DD;"></div><div class="nm">Sky</div><div class="hex">#B5D4DD</div></div>
+    <div class="swatch"><div class="chip" style="background:#FFE99A;"></div><div class="nm">Lemon</div><div class="hex">#FFE99A</div></div>
+    <div class="swatch"><div class="chip" style="background:#C13B2E;"></div><div class="nm">Danger</div><div class="hex">#C13B2E</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>10.2 · KPIs <small>cards de dashboard</small></h2>
+  <div class="kpi">
+    <div class="card">
+      <div class="lab">Reservas</div>
+      <div class="val">128</div>
+      <div class="delta up">▲ 12%</div>
+      <svg class="spark" viewBox="0 0 120 32" preserveAspectRatio="none"><polyline fill="none" stroke="#5A8A6B" stroke-width="2" points="0,24 15,20 30,22 45,16 60,18 75,12 90,14 105,8 120,6"/></svg>
+    </div>
+    <div class="card">
+      <div class="lab">Receita</div>
+      <div class="val">R$ 84,2k</div>
+      <div class="delta up">▲ 8,4%</div>
+      <svg class="spark" viewBox="0 0 120 32" preserveAspectRatio="none"><polyline fill="none" stroke="#FFC533" stroke-width="2" points="0,22 15,18 30,20 45,15 60,12 75,14 90,10 105,8 120,5"/></svg>
+    </div>
+    <div class="card">
+      <div class="lab">Ocupação</div>
+      <div class="val">76%</div>
+      <div class="delta down">▼ 2,1%</div>
+      <svg class="spark" viewBox="0 0 120 32" preserveAspectRatio="none"><polyline fill="none" stroke="#C13B2E" stroke-width="2" points="0,10 15,8 30,12 45,14 60,16 75,15 90,18 105,20 120,22"/></svg>
+    </div>
+    <div class="card">
+      <div class="lab">Avaliação</div>
+      <div class="val">4.91</div>
+      <div class="delta up">▲ 0,03</div>
+      <svg class="spark" viewBox="0 0 120 32" preserveAspectRatio="none"><polyline fill="none" stroke="#1F3A4D" stroke-width="2" points="0,18 15,17 30,16 45,16 60,15 75,15 90,14 105,13 120,12"/></svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>10.3 · Bar + linha + donut</h2>
+  <div class="charts">
+    <div class="chart">
+      <h4>Reservas por mês</h4>
+      <div class="sub">Comparativo 2025 vs 2026</div>
+      <svg viewBox="0 0 320 160" width="100%" height="160">
+        <line class="gridline" x1="30" y1="20" x2="310" y2="20"/>
+        <line class="gridline" x1="30" y1="60" x2="310" y2="60"/>
+        <line class="gridline" x1="30" y1="100" x2="310" y2="100"/>
+        <line class="gridline" x1="30" y1="140" x2="310" y2="140"/>
+        <g><!-- 2025 -->
+          <rect x="42" y="80" width="14" height="60" rx="2" fill="#1F3A4D"/>
+          <rect x="86" y="60" width="14" height="80" rx="2" fill="#1F3A4D"/>
+          <rect x="130" y="50" width="14" height="90" rx="2" fill="#1F3A4D"/>
+          <rect x="174" y="35" width="14" height="105" rx="2" fill="#1F3A4D"/>
+          <rect x="218" y="55" width="14" height="85" rx="2" fill="#1F3A4D"/>
+          <rect x="262" y="40" width="14" height="100" rx="2" fill="#1F3A4D"/>
+        </g>
+        <g><!-- 2026 -->
+          <rect x="58" y="65" width="14" height="75" rx="2" fill="#FFC533"/>
+          <rect x="102" y="45" width="14" height="95" rx="2" fill="#FFC533"/>
+          <rect x="146" y="30" width="14" height="110" rx="2" fill="#FFC533"/>
+          <rect x="190" y="20" width="14" height="120" rx="2" fill="#FFC533"/>
+          <rect x="234" y="38" width="14" height="102" rx="2" fill="#FFC533"/>
+          <rect x="278" y="25" width="14" height="115" rx="2" fill="#FFC533"/>
+        </g>
+        <g class="axis">
+          <text x="50" y="155" text-anchor="middle">jan</text>
+          <text x="94" y="155" text-anchor="middle">fev</text>
+          <text x="138" y="155" text-anchor="middle">mar</text>
+          <text x="182" y="155" text-anchor="middle">abr</text>
+          <text x="226" y="155" text-anchor="middle">mai</text>
+          <text x="270" y="155" text-anchor="middle">jun</text>
+        </g>
+      </svg>
+      <div class="legend"><div><i style="background:#1F3A4D;"></i>2025</div><div><i style="background:#FFC533;"></i>2026</div></div>
+    </div>
+
+    <div class="chart">
+      <h4>Origem dos hóspedes</h4>
+      <div class="sub">Distribuição últimos 90 dias</div>
+      <svg viewBox="0 0 200 160" width="100%" height="160">
+        <!-- donut: 4 segments -->
+        <g transform="translate(100 80)">
+          <circle r="55" fill="none" stroke="#FFC533" stroke-width="22" stroke-dasharray="120 345" stroke-dashoffset="0" transform="rotate(-90)"/>
+          <circle r="55" fill="none" stroke="#1F3A4D" stroke-width="22" stroke-dasharray="90 345" stroke-dashoffset="-120" transform="rotate(-90)"/>
+          <circle r="55" fill="none" stroke="#5A8A6B" stroke-width="22" stroke-dasharray="80 345" stroke-dashoffset="-210" transform="rotate(-90)"/>
+          <circle r="55" fill="none" stroke="#5C8AA6" stroke-width="22" stroke-dasharray="55 345" stroke-dashoffset="-290" transform="rotate(-90)"/>
+          <text text-anchor="middle" y="-2" font-family="Lufga,sans-serif" font-size="10" font-weight="600" fill="#5A6F7E">Total</text>
+          <text text-anchor="middle" y="14" font-family="Lufga,sans-serif" font-size="18" font-weight="800" fill="#1F3A4D">2.4k</text>
+        </g>
+      </svg>
+      <div class="legend">
+        <div><i style="background:#FFC533;"></i>SP 35%</div>
+        <div><i style="background:#1F3A4D;"></i>RJ 26%</div>
+        <div><i style="background:#5A8A6B;"></i>MG 23%</div>
+        <div><i style="background:#5C8AA6;"></i>Outros 16%</div>
+      </div>
+    </div>
+
+    <div class="chart" style="grid-column:1/-1;">
+      <h4>Receita acumulada</h4>
+      <div class="sub">Linha · janeiro a junho · com área</div>
+      <svg viewBox="0 0 640 180" width="100%" height="180">
+        <line class="gridline" x1="40" y1="30" x2="620" y2="30"/>
+        <line class="gridline" x1="40" y1="80" x2="620" y2="80"/>
+        <line class="gridline" x1="40" y1="130" x2="620" y2="130"/>
+        <!-- area -->
+        <path d="M40 130 L130 110 L220 90 L310 70 L400 55 L490 45 L580 30 L580 160 L40 160 Z" fill="#FFC533" opacity="0.18"/>
+        <!-- line -->
+        <path d="M40 130 L130 110 L220 90 L310 70 L400 55 L490 45 L580 30" fill="none" stroke="#FFC533" stroke-width="3"/>
+        <!-- dots -->
+        <g fill="#1F3A4D"><circle cx="40" cy="130" r="4"/><circle cx="130" cy="110" r="4"/><circle cx="220" cy="90" r="4"/><circle cx="310" cy="70" r="4"/><circle cx="400" cy="55" r="4"/><circle cx="490" cy="45" r="4"/><circle cx="580" cy="30" r="4"/></g>
+        <g class="axis">
+          <text x="40" y="172" text-anchor="middle">jan</text>
+          <text x="130" y="172" text-anchor="middle">fev</text>
+          <text x="220" y="172" text-anchor="middle">mar</text>
+          <text x="310" y="172" text-anchor="middle">abr</text>
+          <text x="400" y="172" text-anchor="middle">mai</text>
+          <text x="490" y="172" text-anchor="middle">jun</text>
+          <text x="580" y="172" text-anchor="middle">jul</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+</div></body></html>

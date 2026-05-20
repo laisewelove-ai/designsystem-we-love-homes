@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin:0; padding:0; background: var(--wlh-sand-cream); }
+  .frame { padding: 14px; display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .pat-card { display:flex; flex-direction:column; gap:6px; }
+  .tile { aspect-ratio: 1; border-radius: 14px; overflow:hidden; border: 1px solid var(--border); }
+  .name { font-family: var(--font-heading); font-size: 11px; font-weight: 600; color: var(--fg); text-align: center; }
+  .desc { font-family: var(--font-body); font-size: 10px; color: var(--fg-muted); text-align: center; }
+</style></head>
+<body><div class="frame">
+
+  <!-- 1. Tiled house marks on cream — calm, brand-led repeat -->
+  <div class="pat-card">
+    <div class="tile">
+      <svg viewBox="0 0 200 200" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <pattern id="houses" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+            <rect width="50" height="50" fill="#FAF1DE"/>
+            <g fill="#1F3A4D" transform="translate(25 25)">
+              <path d="M0 -12 L-12 -2 L-9 -2 L-9 10 L9 10 L9 -2 L12 -2 Z"/>
+            </g>
+            <g fill="#FFC533">
+              <path d="M0 -12 L-12 -2 L-9 -2 L-9 10 L9 10 L9 -2 L12 -2 Z" transform="translate(25 0)"/>
+              <path d="M0 -12 L-12 -2 L-9 -2 L-9 10 L9 10 L9 -2 L12 -2 Z" transform="translate(0 25)"/>
+              <path d="M0 -12 L-12 -2 L-9 -2 L-9 10 L9 10 L9 -2 L12 -2 Z" transform="translate(50 25)"/>
+              <path d="M0 -12 L-12 -2 L-9 -2 L-9 10 L9 10 L9 -2 L12 -2 Z" transform="translate(25 50)"/>
+            </g>
+          </pattern>
+        </defs>
+        <rect width="200" height="200" fill="url(#houses)"/>
+      </svg>
+    </div>
+    <div class="name">Vila</div>
+    <div class="desc">Casas alternadas · cream + petrol + sun</div>
+  </div>
+
+  <!-- 2. Sun rays — radial brand pattern -->
+  <div class="pat-card">
+    <div class="tile">
+      <svg viewBox="0 0 200 200" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+        <rect width="200" height="200" fill="#1F3A4D"/>
+        <g transform="translate(100 100)" fill="#FFC533">
+          <rect x="-6" y="-90" width="12" height="60" rx="6"/>
+          <g transform="rotate(30)"><rect x="-6" y="-90" width="12" height="60" rx="6"/></g>
+          <g transform="rotate(60)"><rect x="-6" y="-90" width="12" height="60" rx="6"/></g>
+          <g transform="rotate(90)"><rect x="-6" y="-90" width="12" height="60" rx="6"/></g>
+          <g transform="rotate(120)"><rect x="-6" y="-90" width="12" height="60" rx="6"/></g>
+          <g transform="rotate(150)"><rect x="-6" y="-90" width="12" height="60" rx="6"/></g>
+          <g transform="rotate(180)"><rect x="-6" y="-90" width="12" height="60" rx="6"/></g>
+          <g transform="rotate(210)"><rect x="-6" y="-90" width="12" height="60" rx="6"/></g>
+          <g transform="rotate(240)"><rect x="-6" y="-90" width="12" height="60" rx="6"/></g>
+          <g transform="rotate(270)"><rect x="-6" y="-90" width="12" height="60" rx="6"/></g>
+          <g transform="rotate(300)"><rect x="-6" y="-90" width="12" height="60" rx="6"/></g>
+          <g transform="rotate(330)"><rect x="-6" y="-90" width="12" height="60" rx="6"/></g>
+          <circle r="22" fill="#FFC533"/>
+          <circle r="10" fill="#1F3A4D"/>
+        </g>
+      </svg>
+    </div>
+    <div class="name">Sol</div>
+    <div class="desc">Raios centrais · petrol + sun</div>
+  </div>
+
+  <!-- 3. Diagonal wordmark stripes — wallpaper / tote bag -->
+  <div class="pat-card">
+    <div class="tile">
+      <svg viewBox="0 0 200 200" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+        <rect width="200" height="200" fill="#FFC533"/>
+        <g fill="#1F3A4D" font-family="'Chalkiez','Caveat Brush',cursive" font-size="22" transform="rotate(-18 100 100)">
+          <text x="-40" y="20">WeLove · Homes ·</text>
+          <text x="-40" y="60">Homes · WeLove ·</text>
+          <text x="-40" y="100">WeLove · Homes ·</text>
+          <text x="-40" y="140">Homes · WeLove ·</text>
+          <text x="-40" y="180">WeLove · Homes ·</text>
+          <text x="-40" y="220">Homes · WeLove ·</text>
+        </g>
+      </svg>
+    </div>
+    <div class="name">Carimbo</div>
+    <div class="desc">Wordmark repetido · sun + petrol</div>
+  </div>
+
+</div></body></html>

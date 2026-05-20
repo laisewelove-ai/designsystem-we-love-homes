@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin:0; padding:0; background: var(--wlh-off-white); }
+  .frame { padding: 22px 24px; display:flex; flex-direction:column; gap: 14px; }
+  .label { font-family: var(--font-heading); font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color: var(--fg-muted); font-weight:600; }
+  .row { display:flex; gap: 14px; align-items:center; }
+  .item { display:flex; flex-direction:column; align-items:center; gap:6px; }
+  .square { width: 64px; height:64px; background: #fff; border: 1px solid var(--border); }
+  .tok { font-family: var(--font-mono); font-size: 10px; color: var(--fg-muted); }
+</style></head>
+<body><div class="frame">
+  <div class="label">Corner radii</div>
+  <div class="row">
+    <div class="item"><div class="square" style="border-radius:6px"></div><div class="tok">6 · xs</div></div>
+    <div class="item"><div class="square" style="border-radius:10px"></div><div class="tok">10 · sm</div></div>
+    <div class="item"><div class="square" style="border-radius:14px"></div><div class="tok">14 · md</div></div>
+    <div class="item"><div class="square" style="border-radius:20px"></div><div class="tok">20 · lg</div></div>
+    <div class="item"><div class="square" style="border-radius:28px"></div><div class="tok">28 · xl</div></div>
+    <div class="item"><div class="square" style="border-radius:36px"></div><div class="tok">36 · 2xl</div></div>
+    <div class="item"><div class="square" style="border-radius:999px"></div><div class="tok">pill</div></div>
+  </div>
+</div></body></html>

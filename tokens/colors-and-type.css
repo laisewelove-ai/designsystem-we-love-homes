@@ -1,0 +1,262 @@
+/* ============================================================
+   We Love Homes — Colors & Type
+   ============================================================ */
+
+/* ============================================================
+   Real brand fonts (provided by client)
+   - Lufga: full weight family for headings + body
+   - Chalkiez: brushy display for hero / wordmark accents
+   ============================================================ */
+@font-face { font-family: 'Lufga'; src: url('fonts/lufga-light.otf') format('opentype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Lufga'; src: url('fonts/lufga-regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Lufga'; src: url('fonts/lufga-medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Lufga'; src: url('fonts/lufga-semibold.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Lufga'; src: url('fonts/lufga-bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Lufga'; src: url('fonts/lufga-extra-bold.otf') format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Lufga'; src: url('fonts/lufga-black.otf') format('opentype'); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Chalkiez'; src: url('fonts/Chalkiez-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+
+:root {
+  /* ------------------------------------------------------------
+     COLORS — Primary  (paleta "Sol & Areia" · 60-30-10)
+     ------------------------------------------------------------ */
+  --wlh-sun-yellow:     #FFC533;  /* HERO · CTAs, destaques, marca */
+  --wlh-deep-petrol:    #1F3A4D;  /* INK · nav, títulos, texto institucional */
+  --wlh-sand-cream:     #FAF1DE;  /* FUNDO · canvas principal */
+
+  /* ------------------------------------------------------------
+     COLORS — Support
+     ------------------------------------------------------------ */
+  --wlh-pale-lemon:     #FFE99A;  /* Tags suaves, washes amarelos */
+  --wlh-cactus-green:   #5A8A6B;  /* Verde natureza, success calmo */
+  --wlh-sky-wash:       #B5D4DD;  /* Fundos suaves, tags frias */
+  --wlh-info-blue:      #5C8AA6;  /* Acento azul institucional */
+
+  /* Subtle wash tints derived from primaries */
+  --wlh-yellow-wash:    #FFF6D6;
+  --wlh-petrol-wash:    #E4ECEF;
+  --wlh-green-wash:     #E4EDE6;
+  --wlh-blue-wash:      #E2EAF0;
+
+  /* Neutrals */
+  --wlh-white:          #FFFFFF;
+  --wlh-cream:          #FDF7E8;       /* lighter cream for cards */
+  --wlh-ink:            #16293A;       /* deepest petrol */
+
+  /* Legacy aliases — keep older components rendering correctly
+     until the full kit is repainted in Sol & Areia.
+     Map each retired token to its closest Sol & Areia equivalent. */
+  --wlh-coral-red:      var(--wlh-sun-yellow);
+  --wlh-navy-dark:      var(--wlh-deep-petrol);
+  --wlh-off-white:      var(--wlh-sand-cream);
+  --wlh-powder-aqua:    var(--wlh-sky-wash);
+  --wlh-sky-blue:       var(--wlh-info-blue);
+  --wlh-purple-deep:    var(--wlh-deep-petrol);
+  --wlh-golden-yellow:  var(--wlh-sun-yellow);
+  --wlh-terracotta:     var(--wlh-sun-yellow);
+  --wlh-teal-dark:      var(--wlh-cactus-green);
+  --wlh-soft-coral:     var(--wlh-sun-yellow);
+  /* clay-pink retired — alias to sun-yellow for legacy components */
+  --wlh-clay-pink:      var(--wlh-sun-yellow);
+  --wlh-pink-wash:      var(--wlh-yellow-wash);
+  --wlh-orange-vibrant: var(--wlh-sun-yellow);
+  --wlh-deep-red:       #C13B2E;
+  --wlh-forest-green:   var(--wlh-cactus-green);
+  --wlh-aqua-wash:      var(--wlh-petrol-wash);
+  --wlh-coral-wash:     var(--wlh-yellow-wash);
+  --wlh-purple-wash:    var(--wlh-blue-wash);
+
+  /* ------------------------------------------------------------
+     SEMANTIC — Foreground / Background
+     ------------------------------------------------------------ */
+  --bg:           var(--wlh-sand-cream);
+  --bg-elevated:  var(--wlh-white);
+  --bg-muted:     var(--wlh-cream);
+  --bg-inverse:   var(--wlh-deep-petrol);
+
+  --fg:           var(--wlh-deep-petrol);
+  --fg-muted:     #5A6F7E;
+  --fg-subtle:    #8AA0B0;
+  --fg-inverse:   var(--wlh-sand-cream);
+
+  --accent:         var(--wlh-sun-yellow);
+  --accent-hover:   #F0B523;
+  --accent-pressed: #DBA210;
+  --link:           var(--wlh-info-blue);
+
+  --success:        var(--wlh-cactus-green);
+  --warning:        #E89028;
+  --danger:         #C13B2E;
+  --info:           var(--wlh-info-blue);
+
+  --border:         #E8DEC8;        /* warm sand border */
+  --border-strong:  #C9BC9E;
+  --divider:        rgba(31, 58, 77, 0.10);
+
+  /* ------------------------------------------------------------
+     TYPOGRAPHY — Families (real brand fonts, locally hosted)
+     Lufga = headings + body (sans humanista geométrica)
+     Chalkiez = display brushy / hero / acentos manuscritos
+     ------------------------------------------------------------ */
+  --font-display: 'Chalkiez', 'Caveat Brush', cursive;
+  --font-heading: 'Lufga', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body:    'Lufga', 'Mulish', system-ui, sans-serif;
+  --font-mono:    ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ------------------------------------------------------------
+     TYPOGRAPHY — Scale (rem-based, base 16)
+     ------------------------------------------------------------ */
+  --fs-hero:    72px;   /* Display hero */
+  --fs-h1:      56px;
+  --fs-h2:      40px;
+  --fs-h3:      28px;
+  --fs-h4:      22px;
+  --fs-body-lg: 18px;
+  --fs-body:    16px;
+  --fs-body-sm: 14px;
+  --fs-caption: 12px;
+
+  --lh-tight:   1.05;
+  --lh-snug:    1.2;
+  --lh-normal:  1.45;
+  --lh-relaxed: 1.6;
+
+  --ls-tight:   -0.02em;
+  --ls-normal:  0;
+  --ls-wide:    0.04em;
+  --ls-eyebrow: 0.12em;
+
+  /* ------------------------------------------------------------
+     RADIUS  — generous, friendly
+     ------------------------------------------------------------ */
+  --r-xs:  6px;
+  --r-sm:  10px;
+  --r-md:  14px;
+  --r-lg:  20px;
+  --r-xl:  28px;
+  --r-2xl: 36px;
+  --r-pill: 999px;
+
+  /* ------------------------------------------------------------
+     SPACING (4px grid)
+     ------------------------------------------------------------ */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  12px;
+  --sp-4:  16px;
+  --sp-5:  20px;
+  --sp-6:  24px;
+  --sp-8:  32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+  --sp-24: 96px;
+
+  /* ------------------------------------------------------------
+     SHADOWS — soft, warm
+     ------------------------------------------------------------ */
+  --sh-xs:  0 1px 2px rgba(31, 58, 77, 0.06);
+  --sh-sm:  0 2px 6px rgba(31, 58, 77, 0.08);
+  --sh-md:  0 6px 18px rgba(31, 58, 77, 0.10);
+  --sh-lg:  0 14px 36px rgba(31, 58, 77, 0.14);
+  --sh-xl:  0 28px 60px rgba(31, 58, 77, 0.18);
+  --sh-glow-yellow: 0 8px 24px rgba(255, 197, 51, 0.40);
+  --sh-glow-coral:  var(--sh-glow-yellow); /* legacy alias */
+
+  /* ------------------------------------------------------------
+     MOTION
+     ------------------------------------------------------------ */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-fast:   140ms;
+  --t-base:   220ms;
+  --t-slow:   420ms;
+}
+
+/* ============================================================
+   No italics — brand rule (Sol & Areia)
+   ============================================================ */
+em, i, cite, dfn, var, address {
+  font-style: normal;
+}
+* { font-style: normal !important; }
+
+/* ============================================================
+   Base typography
+   ============================================================ */
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-snug);
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-h1); line-height: var(--lh-tight); font-weight: 800; }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+
+.display, .wlh-display {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  line-height: 0.95;
+  color: var(--accent);
+  letter-spacing: 0.005em;
+  font-weight: 400;
+}
+
+.eyebrow, .wlh-eyebrow {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: var(--fs-caption);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+p { font-family: var(--font-body); line-height: var(--lh-relaxed); text-wrap: pretty; }
+small { font-size: var(--fs-body-sm); color: var(--fg-muted); }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+code, pre { font-family: var(--font-mono); font-size: 0.92em; }
+
+/* ============================================================
+   Utility classes
+   ============================================================ */
+/* New Sol & Areia utilities */
+.wlh-bg-sand    { background: var(--wlh-sand-cream); color: var(--wlh-deep-petrol); }
+.wlh-bg-petrol  { background: var(--wlh-deep-petrol); color: var(--fg-inverse); }
+.wlh-bg-yellow  { background: var(--wlh-sun-yellow);  color: var(--wlh-deep-petrol); }
+.wlh-bg-lemon   { background: var(--wlh-pale-lemon);  color: var(--wlh-deep-petrol); }
+.wlh-bg-cactus  { background: var(--wlh-cactus-green); color: var(--wlh-white); }
+.wlh-bg-sky     { background: var(--wlh-sky-wash);    color: var(--wlh-deep-petrol); }
+.wlh-bg-clay    { background: var(--wlh-clay-pink);   color: var(--wlh-deep-petrol); }
+.wlh-bg-info    { background: var(--wlh-info-blue);   color: var(--wlh-white); }
+
+/* Legacy utility aliases */
+.wlh-bg-bege   { background: var(--wlh-sand-cream); }
+.wlh-bg-navy   { background: var(--wlh-deep-petrol); color: var(--fg-inverse); }
+.wlh-bg-coral  { background: var(--wlh-sun-yellow); color: var(--wlh-deep-petrol); }
+.wlh-bg-aqua   { background: var(--wlh-sky-wash); color: var(--wlh-deep-petrol); }
+.wlh-bg-purple { background: var(--wlh-deep-petrol); color: var(--wlh-white); }
+.wlh-bg-teal   { background: var(--wlh-cactus-green); color: var(--wlh-white); }
+
+.wlh-card {
+  background: var(--wlh-white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-sm);
+}

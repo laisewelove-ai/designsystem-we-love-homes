@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin:0; padding:0; background: var(--wlh-sand-cream); color: var(--wlh-deep-petrol); }
+  .frame { padding: 22px 24px; display:flex; flex-direction:column; gap:14px; }
+  h2 {
+    font-family: var(--font-heading);
+    font-size:11px; text-transform:uppercase; letter-spacing:0.14em;
+    margin: 6px 0 4px; font-weight:700; color: var(--wlh-deep-petrol);
+  }
+  h2:not(:first-child) { margin-top: 18px; }
+  h2 small { font-weight: 500; opacity: 0.55; letter-spacing: 0.06em; text-transform: none; margin-left: 6px; }
+
+  .grid { display:grid; grid-template-columns: repeat(8, 1fr); gap:10px; }
+
+  .ico {
+    aspect-ratio: 1;
+    background: var(--wlh-white);
+    border-radius: 14px;
+    display:flex; align-items:center; justify-content:center;
+    padding: 12px;
+    border: 1px solid var(--border);
+    transition: transform .15s ease;
+  }
+  .ico:hover { transform: translateY(-1px); }
+  .ico img { width:100%; height:100%; object-fit: contain; pointer-events:none; }
+  .name {
+    font-family: var(--font-heading);
+    font-size: 9px;
+    color: rgba(31,58,77,0.7);
+    text-align:center;
+    margin-top:5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .col { display:flex; flex-direction:column; }
+</style></head>
+<body>
+<div class="frame">
+
+  <h2>Originais · 7 ícones <small>kit base · key, café, passaporte, prédio, tag, hearts</small></h2>
+  <div class="grid">
+    <div class="col"><div class="ico"><img src="../assets/icons/key-checkin.svg"></div><div class="name">key</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/coffee-cup.svg"></div><div class="name">coffee</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/passport.svg"></div><div class="name">passport</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/building.svg"></div><div class="name">building</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/door-tag.png"></div><div class="name">door tag</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/heart.svg"></div><div class="name">heart</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/heart-yellow.svg"></div><div class="name">heart yellow</div></div>
+  </div>
+
+  <h2>Umbrella · 8 cores <small>uma para cada cor da paleta Sol &amp; Areia</small></h2>
+  <div class="grid">
+    <div class="col"><div class="ico"><img src="../assets/icons/umbrella-yellow.svg"></div><div class="name">sun yellow</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/umbrella-petrol.svg"></div><div class="name">deep petrol</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/umbrella-cactus.svg"></div><div class="name">cactus</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/umbrella-sky.svg"></div><div class="name">sky wash</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/umbrella-lemon.svg"></div><div class="name">pale lemon</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/umbrella-info.svg"></div><div class="name">info blue</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/umbrella-coral.svg"></div><div class="name">coral</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/umbrella-purple.svg"></div><div class="name">purple</div></div>
+  </div>
+
+  <h2>Hospitalidade · 21 ícones <small>SVG, mesmo estilo flat + 2-tone + tilt</small></h2>
+  <div class="grid">
+    <div class="col"><div class="ico"><img src="../assets/icons/suitcase.svg"></div><div class="name">suitcase</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/bed.svg"></div><div class="name">bed</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/house.svg"></div><div class="name">house</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/city.svg"></div><div class="name">city</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/wifi.svg"></div><div class="name">wifi</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/map-pin.svg"></div><div class="name">map pin</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/camera.svg"></div><div class="name">camera</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/compass.svg"></div><div class="name">compass</div></div>
+
+    <div class="col"><div class="ico"><img src="../assets/icons/sun.svg"></div><div class="name">sun</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/mountain.svg"></div><div class="name">mountain</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/airplane.svg"></div><div class="name">airplane</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/cocktail.svg"></div><div class="name">cocktail</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/sofa.svg"></div><div class="name">sofa</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/plant.svg"></div><div class="name">plant</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/hammock.svg"></div><div class="name">hammock</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/sunglasses.svg"></div><div class="name">sunglasses</div></div>
+
+    <div class="col"><div class="ico"><img src="../assets/icons/calendar.svg"></div><div class="name">calendar</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/bell.svg"></div><div class="name">bell</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/wine.svg"></div><div class="name">wine</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/bicycle.svg"></div><div class="name">bicycle</div></div>
+    <div class="col"><div class="ico"><img src="../assets/icons/postcard.svg"></div><div class="name">postcard</div></div>
+  </div>
+</div>
+</body></html>

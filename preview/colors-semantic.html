@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Card</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--wlh-sand-cream); }
+  .card-frame { padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+  .row { display: flex; align-items: center; gap: 18px; }
+  .pill { display:inline-flex; align-items:center; gap:8px; padding: 8px 14px; border-radius: 999px; font-family: var(--font-heading); font-size: 13px; font-weight: 600; }
+  .dot { width: 14px; height: 14px; border-radius: 50%; }
+  .label { font-family: var(--font-heading); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); font-weight: 600; width: 90px; }
+</style>
+</head>
+<body>
+<div class="card-frame">
+  <div class="row">
+    <span class="label">Success</span>
+    <span class="pill" style="background:#E4EDE6;color:#2F5A3E;"><span class="dot" style="background:#5A8A6B;"></span>Reserva confirmada</span>
+    <span class="pill" style="background:#E4EDE6;color:#2F5A3E;"><span class="dot" style="background:#5A8A6B;"></span>Pagamento ok</span>
+  </div>
+  <div class="row">
+    <span class="label">Warning</span>
+    <span class="pill" style="background:#FFF6D6;color:#7A5400;"><span class="dot" style="background:#FFC533;"></span>3 dias para o check-in</span>
+    <span class="pill" style="background:#FCE5C9;color:#9A5A00;"><span class="dot" style="background:#E89028;"></span>Quase lotado</span>
+  </div>
+  <div class="row">
+    <span class="label">Danger</span>
+    <span class="pill" style="background:#F7E2DD;color:#8E2418;"><span class="dot" style="background:#C13B2E;"></span>Cancelado</span>
+    <span class="pill" style="background:#F7E2DD;color:#8E2418;"><span class="dot" style="background:#C13B2E;"></span>Erro no pagamento</span>
+  </div>
+  <div class="row">
+    <span class="label">Info</span>
+    <span class="pill" style="background:#E2EAF0;color:#274D63;"><span class="dot" style="background:#5C8AA6;"></span>Novidade no bairro</span>
+    <span class="pill" style="background:#E4ECEF;color:#1F3A4D;"><span class="dot" style="background:#B5D4DD;"></span>Anfitrião verificado</span>
+  </div>
+</div>
+</body>
+</html>

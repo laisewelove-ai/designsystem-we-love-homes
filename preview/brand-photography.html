@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--wlh-sand-cream);color:var(--wlh-deep-petrol);}
+  .frame{padding:24px;display:flex;flex-direction:column;gap:22px;}
+  h2{font-family:var(--font-heading);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 6px;}
+  h2 small{font-weight:500;opacity:0.55;letter-spacing:0.06em;text-transform:none;margin-left:6px;}
+  .row{display:grid;gap:10px;}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:1fr 1fr;}
+  .photo{border-radius:14px;overflow:hidden;position:relative;aspect-ratio:4/3;display:flex;align-items:flex-end;padding:14px;background-size:cover;background-position:center;color:#fff;}
+  .photo.tall{aspect-ratio:3/4;}
+  .photo .cap{font-family:var(--font-heading);font-size:10px;font-weight:600;letter-spacing:0.06em;background:rgba(22,41,58,0.55);backdrop-filter:blur(4px);padding:5px 9px;border-radius:6px;line-height:1.3;}
+  .photo .pill{position:absolute;top:10px;left:10px;font-family:var(--font-heading);font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:var(--wlh-sun-yellow);color:var(--wlh-deep-petrol);padding:3px 8px;border-radius:999px;}
+
+  /* Placeholder gradient "photos" — illustrate moods, no real imagery */
+  .ph-interior-1{background:linear-gradient(135deg,#E8C99A 0%,#C49968 50%,#8B6240 100%);}
+  .ph-interior-2{background:linear-gradient(160deg,#FAF1DE 0%,#E4CDA0 60%,#A88566 100%);}
+  .ph-interior-3{background:linear-gradient(180deg,#B5D4DD 0%,#FAF1DE 50%,#E8C99A 100%);}
+  .ph-interior-4{background:linear-gradient(200deg,#5A8A6B 0%,#A4B996 50%,#FAF1DE 100%);}
+  .ph-light-1{background:radial-gradient(circle at 30% 30%,#FFE9B0,#FFC533 40%,#E89028 100%);}
+  .ph-light-2{background:linear-gradient(160deg,#FFE99A 0%,#FFC533 50%,#1F3A4D 100%);}
+  .ph-light-3{background:radial-gradient(circle at 70% 20%,#FAF1DE,#E8C99A 50%,#5A8A6B 100%);}
+  .ph-host-1{background:linear-gradient(180deg,#1F3A4D 0%,#5C8AA6 100%);}
+  .ph-host-2{background:linear-gradient(180deg,#5A8A6B 0%,#FAF1DE 100%);}
+  .ph-host-3{background:linear-gradient(180deg,#E89028 0%,#FFC533 100%);}
+  .ph-detail-1{background:linear-gradient(120deg,#FAF1DE,#FFE99A 70%);}
+  .ph-detail-2{background:linear-gradient(120deg,#5A8A6B,#A4B996);}
+  .ph-detail-3{background:linear-gradient(120deg,#B5D4DD,#FAF1DE);}
+  .ph-detail-4{background:linear-gradient(120deg,#1F3A4D,#5C8AA6);}
+
+  .donts{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .dont{background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px;}
+  .dont .tag{font-family:var(--font-heading);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;}
+  .dont.no .tag{color:#C13B2E;}
+  .dont.ok .tag{color:var(--wlh-cactus-green);}
+  .dont p{font-family:var(--font-body);font-size:11px;color:var(--fg-muted);margin:6px 0 0;line-height:1.5;}
+  .principles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .principle{background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px;}
+  .principle .num{font-family:var(--font-display);font-size:32px;color:var(--wlh-sun-yellow);line-height:1;}
+  .principle h4{font-family:var(--font-heading);font-size:13px;font-weight:700;margin:6px 0 4px;}
+  .principle p{font-family:var(--font-body);font-size:11px;color:var(--fg-muted);line-height:1.5;margin:0;}
+</style></head>
+<body><div class="frame">
+
+<section>
+  <h2>2.1 · 4 princípios visuais</h2>
+  <div class="principles">
+    <div class="principle"><div class="num">01</div><h4>Luz natural</h4><p>Fim de tarde, manhã suave. Nunca flash duro.</p></div>
+    <div class="principle"><div class="num">02</div><h4>Vivido, não styled</h4><p>Café meio bebido, livro aberto. Realidade habitada.</p></div>
+    <div class="principle"><div class="num">03</div><h4>Cor terrosa</h4><p>Cremes, ocres, verdes. Neutros quentes.</p></div>
+    <div class="principle"><div class="num">04</div><h4>Pessoas em ação</h4><p>Hóspedes interagindo, hosts sorrindo natural.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>2.2 · Interiores <small>varandas, salas, cozinhas — luz natural</small></h2>
+  <div class="row grid-4">
+    <div class="photo ph-interior-1"><span class="pill">Sala</span><div class="cap">Luz lateral, móvel de madeira, plantas</div></div>
+    <div class="photo ph-interior-2"><span class="pill">Cozinha</span><div class="cap">Cremes + bege, café preparando</div></div>
+    <div class="photo ph-interior-3"><span class="pill">Quarto</span><div class="cap">Cama desfeita, luz da manhã</div></div>
+    <div class="photo ph-interior-4"><span class="pill">Varanda</span><div class="cap">Verde + vista, hammock, mate</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>2.3 · Luz <small>golden hour é o nosso horário</small></h2>
+  <div class="row grid-3">
+    <div class="photo ph-light-1"><span class="pill">Golden hour</span><div class="cap">Sol baixo, sombras longas, dourado</div></div>
+    <div class="photo ph-light-2"><span class="pill">Pôr do sol</span><div class="cap">Silhuetas + céu quente</div></div>
+    <div class="photo ph-light-3"><span class="pill">Manhã</span><div class="cap">Luz difusa, café da manhã, jardim</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>2.4 · Pessoas <small>hosts e hóspedes — sempre naturais</small></h2>
+  <div class="row grid-3">
+    <div class="photo tall ph-host-1"><span class="pill">Host</span><div class="cap">Entrega de chave, sorriso natural</div></div>
+    <div class="photo tall ph-host-2"><span class="pill">Hóspede</span><div class="cap">Lendo na rede, descansando</div></div>
+    <div class="photo tall ph-host-3"><span class="pill">Família</span><div class="cap">Café da manhã coletivo, varanda</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>2.5 · Detalhes <small>texturas, objetos, still lifes</small></h2>
+  <div class="row grid-4">
+    <div class="photo ph-detail-1"><span class="pill">Café</span><div class="cap">Xícara, croissant, jornal</div></div>
+    <div class="photo ph-detail-2"><span class="pill">Plantas</span><div class="cap">Folhagem, vasos de barro</div></div>
+    <div class="photo ph-detail-3"><span class="pill">Toalha & sol</span><div class="cap">Toalha listrada, óculos, livro</div></div>
+    <div class="photo ph-detail-4"><span class="pill">Chave</span><div class="cap">Chave em bandeja de couro</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>2.6 · Faça e não faça</h2>
+  <div class="donts">
+    <div class="dont ok"><div class="tag">✓ Faça</div><p>Luz natural, paleta terrosa, momentos cotidianos, pessoas em ação real, detalhes que sugerem habitar — café meio tomado, livro aberto, sapato no chão.</p></div>
+    <div class="dont no"><div class="tag">✗ Não faça</div><p>Flash duro, HDR exagerado, ambientes vazios styled, modelos posando para câmera, saturação alta, filtros vintage agressivos, fotos de banco genéricas.</p></div>
+  </div>
+</section>
+
+</div></body></html>

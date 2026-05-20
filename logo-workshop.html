@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Logo Workshop · We Love Homes</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--wlh-sand-cream); font-family: var(--font-body); color: var(--wlh-deep-petrol); }
+  .page { max-width: 1320px; margin: 0 auto; padding: 56px 48px 80px; }
+
+  .eyebrow { font-family: var(--font-heading); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--wlh-cactus-green); }
+  h1 { font-family: var(--font-heading); font-size: 44px; font-weight: 800; margin: 6px 0 8px; letter-spacing: -0.02em; }
+  .lede { font-size: 16px; color: rgba(31,58,77,0.72); max-width: 720px; line-height: 1.55; margin: 0 0 8px; }
+
+  section { margin-top: 56px; }
+  h2 { font-family: var(--font-heading); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; margin: 0 0 6px; color: rgba(31,58,77,0.55); border-top: 1px solid rgba(31,58,77,0.12); padding-top: 16px; }
+  .section-sub { font-size: 14px; color: rgba(31,58,77,0.6); margin: 0 0 18px; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+  .card {
+    border-radius: 18px; padding: 36px 32px; min-height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .card .tag {
+    position: absolute; top: 12px; left: 16px;
+    font-family: var(--font-heading); font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.12em;
+  }
+  .card .filename {
+    position: absolute; bottom: 12px; left: 16px;
+    font-family: ui-monospace, monospace; font-size: 10px;
+    opacity: 0.55;
+  }
+  .card img { max-width: 100%; max-height: 110px; height: auto; display: block; }
+  .card.tall img { max-height: 240px; }
+  .card.square { aspect-ratio: 1; padding: 28px; }
+  .card.square img { max-height: 100%; }
+
+  /* Backgrounds drawn from the official Sol & Areia palette */
+  .bg-cream  { background: #FAF1DE; border: 1px solid rgba(31,58,77,0.10); }
+  .bg-petrol { background: #1F3A4D; }
+  .bg-yellow { background: #FFC533; }
+  .bg-green  { background: #5A8A6B; }
+  .bg-sky    { background: #B5D4DD; }
+  .bg-white  { background: #FFFFFF; border: 1px solid rgba(31,58,77,0.10); }
+
+  /* Small note pill */
+  .note {
+    background: rgba(255,197,51,0.18);
+    border: 1px solid rgba(31,58,77,0.12);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 18px 0 0;
+  }
+  .note strong { font-family: var(--font-heading); font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="eyebrow">Logo workshop · arquivos originais</div>
+    <h1>Logos do guia de identidade</h1>
+    <p class="lede">Todos os arquivos de logo enviados no kit inicial, organizados por tipo. Use isso para escolher quais variações entram na marca refinada e quais aposentar.</p>
+    <div class="note"><strong>Próximo passo:</strong> me diga quais dessas variações ficam, quais saem, e se quer que algum dos lockups vire a versão "primária". Daí seguimos para versões em paleta Sol &amp; Areia.</div>
+  </header>
+
+  <!-- ===========================================================
+       § 1 — Selo principal (vertical, full)
+       =========================================================== -->
+  <section>
+    <h2>§ 1 · Selo vertical · marca principal</h2>
+    <p class="section-sub">Wordmark "WeLoveHomes" cercada por ícones do mundo de viagem. Fundo transparente nas quatro versões — só a wordmark muda de cor; os ícones ao redor mantêm sua paleta colorida original.</p>
+    <div class="grid-4">
+      <div class="card tall bg-cream">
+        <span class="tag" style="color:#1F3A4D">Sun yellow</span>
+        <img src="assets/logos/seal-vertical-wordmark-yellow.png" alt="Seal, yellow wordmark">
+        <span class="filename">seal-vertical-wordmark-yellow.png</span>
+      </div>
+      <div class="card tall bg-cream">
+        <span class="tag" style="color:#1F3A4D">Deep petrol</span>
+        <img src="assets/logos/seal-vertical-wordmark-petrol.png" alt="Seal, petrol wordmark">
+        <span class="filename">seal-vertical-wordmark-petrol.png</span>
+      </div>
+      <div class="card tall bg-cream">
+        <span class="tag" style="color:#1F3A4D">Cactus green</span>
+        <img src="assets/logos/seal-vertical-wordmark-cactus.png" alt="Seal, cactus wordmark">
+        <span class="filename">seal-vertical-wordmark-cactus.png</span>
+      </div>
+      <div class="card tall bg-petrol">
+        <span class="tag" style="color:#FFC533">Branco · sobre escuro</span>
+        <img src="assets/logos/seal-vertical-wordmark-white.png" alt="Seal, white wordmark">
+        <span class="filename" style="color:rgba(250,241,222,0.55)">seal-vertical-wordmark-white.png</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================================================
+       § 2 — Lockup horizontal · 4 variantes oficiais (recoloridas)
+       Mesma paleta que o selo vertical. Mark dos guarda-chuvas
+       mantém suas cores; só a wordmark muda.
+       =========================================================== -->
+  <section>
+    <h2>§ 2 · Lockup horizontal · marca principal</h2>
+    <p class="section-sub">Mark de três guarda-chuvas + wordmark "WeLoveHomes". Quatro versões oficiais com fundo transparente — só a wordmark muda de cor; os guarda-chuvas mantêm sua paleta colorida.</p>
+    <div class="grid-2">
+      <div class="card bg-cream">
+        <span class="tag" style="color:#1F3A4D">Sun yellow</span>
+        <img src="assets/logos/horizontal-wordmark-yellow.png" alt="Horizontal logo, yellow wordmark">
+        <span class="filename">horizontal-wordmark-yellow.png</span>
+      </div>
+      <div class="card bg-cream">
+        <span class="tag" style="color:#1F3A4D">Deep petrol</span>
+        <img src="assets/logos/horizontal-wordmark-petrol.png" alt="Horizontal logo, petrol wordmark">
+        <span class="filename">horizontal-wordmark-petrol.png</span>
+      </div>
+      <div class="card bg-cream">
+        <span class="tag" style="color:#1F3A4D">Cactus green</span>
+        <img src="assets/logos/horizontal-wordmark-cactus.png" alt="Horizontal logo, cactus wordmark">
+        <span class="filename">horizontal-wordmark-cactus.png</span>
+      </div>
+      <div class="card bg-petrol">
+        <span class="tag" style="color:#FFC533">Branco · sobre escuro</span>
+        <img src="assets/logos/horizontal-wordmark-white.png" alt="Horizontal logo, white wordmark">
+        <span class="filename" style="color:rgba(250,241,222,0.55)">horizontal-wordmark-white.png</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================================================
+       § 2B — Lockup horizontal · variantes originais do kit
+       =========================================================== -->
+  <section>
+    <h2>§ 2B · Lockup horizontal · paleta original do kit</h2>
+    <p class="section-sub">Variantes de cor enviadas no guia da marca — referência histórica.</p>
+    <div class="grid-2">
+
+      <div class="card bg-cream">
+        <span class="tag" style="color:#1F3A4D">Teal</span>
+        <img src="assets/logos/horizontal-teal.png" alt="Horizontal teal">
+        <span class="filename">horizontal-teal.png</span>
+      </div>
+
+      <div class="card bg-cream">
+        <span class="tag" style="color:#1F3A4D">Variant · purple</span>
+        <img src="assets/logos/horizontal-variant.png" alt="Horizontal purple">
+        <span class="filename">horizontal-variant.png</span>
+      </div>
+
+      <div class="card bg-cream">
+        <span class="tag" style="color:#1F3A4D">Salmon</span>
+        <img src="assets/logos/horizontal-salmon.png" alt="Horizontal salmon">
+        <span class="filename">horizontal-salmon.png</span>
+      </div>
+
+      <div class="card bg-cream">
+        <span class="tag" style="color:#1F3A4D">Navy mark + red</span>
+        <img src="assets/logos/horizontal-on-pink-purple.png" alt="Horizontal pink purple">
+        <span class="filename">horizontal-on-pink-purple.png</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===========================================================
+       § 3 — Logo sobre superfícies da marca
+       Atualizado para a paleta Sol & Areia + 4 logos oficiais.
+       =========================================================== -->
+  <section>
+    <h2>§ 3 · Logo sobre superfícies da marca</h2>
+    <p class="section-sub">Pareamentos oficiais — cada superfície da paleta com a variante de logo de maior contraste e harmonia. Mark dos guarda-chuvas / ícones do selo mantêm sua paleta colorida em todas as combinações.</p>
+
+    <h3 style="font-family:var(--font-heading); font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#1F3A4D; margin:6px 0 10px;">3.1 · Lockup horizontal</h3>
+    <div class="grid-2">
+
+      <div class="card" style="background:var(--wlh-sand-cream); border:1px solid var(--border);">
+        <span class="tag" style="color:#1F3A4D">sobre Sand Cream · #FAF1DE</span>
+        <img src="assets/logos/horizontal-wordmark-petrol.png" alt="Horizontal petrol on sand">
+        <span class="filename">horizontal-wordmark-petrol.png</span>
+      </div>
+
+      <div class="card" style="background:var(--wlh-sun-yellow);">
+        <span class="tag" style="color:#1F3A4D">sobre Sun Yellow · #FFC533</span>
+        <img src="assets/logos/horizontal-wordmark-petrol.png" alt="Horizontal petrol on yellow">
+        <span class="filename">horizontal-wordmark-petrol.png</span>
+      </div>
+
+      <div class="card" style="background:var(--wlh-pale-lemon);">
+        <span class="tag" style="color:#1F3A4D">sobre Pale Lemon · #FFE99A</span>
+        <img src="assets/logos/horizontal-wordmark-petrol.png" alt="Horizontal petrol on lemon">
+        <span class="filename">horizontal-wordmark-petrol.png</span>
+      </div>
+
+      <div class="card" style="background:var(--wlh-sky-wash);">
+        <span class="tag" style="color:#1F3A4D">sobre Sky Wash · #B5D4DD</span>
+        <img src="assets/logos/horizontal-wordmark-petrol.png" alt="Horizontal petrol on sky">
+        <span class="filename">horizontal-wordmark-petrol.png</span>
+      </div>
+
+      <div class="card" style="background:var(--wlh-deep-petrol);">
+        <span class="tag" style="color:#FFC533">sobre Deep Petrol · #1F3A4D</span>
+        <img src="assets/logos/horizontal-wordmark-yellow.png" alt="Horizontal yellow on petrol">
+        <span class="filename" style="color:rgba(250,241,222,0.55)">horizontal-wordmark-yellow.png</span>
+      </div>
+
+      <div class="card" style="background:var(--wlh-ink);">
+        <span class="tag" style="color:#FFC533">sobre Ink · #16293A</span>
+        <img src="assets/logos/horizontal-wordmark-yellow.png" alt="Horizontal yellow on ink">
+        <span class="filename" style="color:rgba(250,241,222,0.55)">horizontal-wordmark-yellow.png</span>
+      </div>
+
+      <div class="card" style="background:var(--wlh-cactus-green);">
+        <span class="tag" style="color:#FAF1DE">sobre Cactus Green · #5A8A6B</span>
+        <img src="assets/logos/horizontal-wordmark-white.png" alt="Horizontal white on cactus">
+        <span class="filename" style="color:rgba(250,241,222,0.55)">horizontal-wordmark-white.png</span>
+      </div>
+
+      <div class="card" style="background:var(--wlh-info-blue);">
+        <span class="tag" style="color:#FAF1DE">sobre Info Blue · #5C8AA6</span>
+        <img src="assets/logos/horizontal-wordmark-white.png" alt="Horizontal white on info">
+        <span class="filename" style="color:rgba(250,241,222,0.55)">horizontal-wordmark-white.png</span>
+      </div>
+
+    </div>
+
+    <h3 style="font-family:var(--font-heading); font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#1F3A4D; margin:24px 0 10px;">3.2 · Selo vertical</h3>
+    <div class="grid-3">
+
+      <div class="card tall" style="background:var(--wlh-sand-cream); border:1px solid var(--border);">
+        <span class="tag" style="color:#1F3A4D">sobre Sand Cream</span>
+        <img src="assets/logos/seal-vertical-wordmark-petrol.png" alt="Seal petrol on sand">
+        <span class="filename">seal-vertical-wordmark-petrol.png</span>
+      </div>
+
+      <div class="card tall" style="background:var(--wlh-sun-yellow);">
+        <span class="tag" style="color:#1F3A4D">sobre Sun Yellow</span>
+        <img src="assets/logos/seal-vertical-wordmark-petrol.png" alt="Seal petrol on yellow">
+        <span class="filename">seal-vertical-wordmark-petrol.png</span>
+      </div>
+
+      <div class="card tall" style="background:var(--wlh-pale-lemon);">
+        <span class="tag" style="color:#1F3A4D">sobre Pale Lemon</span>
+        <img src="assets/logos/seal-vertical-wordmark-cactus.png" alt="Seal cactus on lemon">
+        <span class="filename">seal-vertical-wordmark-cactus.png</span>
+      </div>
+
+      <div class="card tall" style="background:var(--wlh-deep-petrol);">
+        <span class="tag" style="color:#FFC533">sobre Deep Petrol</span>
+        <img src="assets/logos/seal-vertical-wordmark-yellow.png" alt="Seal yellow on petrol">
+        <span class="filename" style="color:rgba(250,241,222,0.55)">seal-vertical-wordmark-yellow.png</span>
+      </div>
+
+      <div class="card tall" style="background:var(--wlh-cactus-green);">
+        <span class="tag" style="color:#FAF1DE">sobre Cactus Green</span>
+        <img src="assets/logos/seal-vertical-wordmark-white.png" alt="Seal white on cactus">
+        <span class="filename" style="color:rgba(250,241,222,0.55)">seal-vertical-wordmark-white.png</span>
+      </div>
+
+      <div class="card tall" style="background:var(--wlh-ink);">
+        <span class="tag" style="color:#FFC533">sobre Ink</span>
+        <img src="assets/logos/seal-vertical-wordmark-white.png" alt="Seal white on ink">
+        <span class="filename" style="color:rgba(250,241,222,0.55)">seal-vertical-wordmark-white.png</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===========================================================
+       § 4 — Mark only
+       =========================================================== -->
+  <section>
+    <h2>§ 4 · Mark · ícone do app, favicon</h2>
+    <p class="section-sub">Composição circular dos ícones de viagem (sem wordmark). Útil para avatar, app icon, favicon.</p>
+    <div class="grid-3">
+      <div class="card square bg-cream">
+        <span class="tag" style="color:#1F3A4D">Mark</span>
+        <img src="assets/logos/mark-home.png" alt="Mark home">
+        <span class="filename">mark-home.png</span>
+      </div>
+      <div class="card square bg-petrol">
+        <span class="tag" style="color:#FFC533">Mark · on petrol</span>
+        <img src="assets/logos/mark-home.png" alt="Mark home on petrol">
+        <span class="filename" style="color:rgba(250,241,222,0.55)">mark-home.png</span>
+      </div>
+      <div class="card square bg-yellow">
+        <span class="tag" style="color:#1F3A4D">Mark · on sun</span>
+        <img src="assets/logos/mark-home.png" alt="Mark home on sun">
+        <span class="filename">mark-home.png</span>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

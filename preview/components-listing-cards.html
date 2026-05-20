@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin:0; padding:0; background: var(--wlh-off-white); }
+  .frame { padding: 24px; display:flex; gap:18px; }
+  .listing { width: 280px; background: #fff; border-radius: 20px; border:1px solid var(--border); box-shadow: 0 2px 6px rgba(31,58,77,0.08); overflow: hidden; }
+  .photo { height: 160px; background-size: cover; background-position: center; position:relative; }
+  .photo.coral { background: linear-gradient(135deg, #FFE99A, #FFC533); }
+  .photo.aqua { background: linear-gradient(135deg, #B5D4DD, #5A8A6B); }
+  .heart { position:absolute; top:12px; right:12px; width:32px; height:32px; border-radius:50%; background: rgba(255,255,255,0.9); display:flex; align-items:center; justify-content:center; }
+  .body { padding: 14px 16px 18px; }
+  .meta { display:flex; justify-content:space-between; align-items:baseline; }
+  .title { font-family: var(--font-heading); font-weight: 700; font-size: 15px; color: var(--fg); }
+  .star { font-family: var(--font-heading); font-size:13px; color: var(--fg); font-weight:600; }
+  .star::before { content:'★'; color: var(--wlh-golden-yellow); margin-right: 3px; }
+  .sub { font-family: var(--font-body); font-size:13px; color: var(--fg-muted); margin-top:2px; }
+  .price { font-family: var(--font-heading); font-weight:700; font-size:16px; color: var(--fg); margin-top:10px; }
+  .price small { font-weight:400; color: var(--fg-muted); font-size:12px; }
+</style></head>
+<body><div class="frame">
+  <div class="listing"><div class="photo coral"><div class="heart">♡</div></div>
+    <div class="body"><div class="meta"><div class="title">Loft Lastarria</div><div class="star">4,9</div></div>
+      <div class="sub">Santiago · 2 hóspedes</div>
+      <div class="price">R$ 480 <small>/ noite</small></div></div></div>
+  <div class="listing"><div class="photo aqua"><div class="heart">♡</div></div>
+    <div class="body"><div class="meta"><div class="title">Casa Bellavista</div><div class="star">4,8</div></div>
+      <div class="sub">Santiago · 4 hóspedes</div>
+      <div class="price">R$ 720 <small>/ noite</small></div></div></div>
+</div></body></html>

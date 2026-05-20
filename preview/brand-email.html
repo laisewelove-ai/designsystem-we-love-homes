@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--wlh-sand-cream);color:var(--wlh-deep-petrol);}
+  .frame{padding:24px;display:flex;flex-direction:column;gap:22px;}
+  h2{font-family:var(--font-heading);font-size:11px;font-weight:700;letter-spacing:0.06em;margin:0 0 8px;}
+  h2 small{font-weight:500;opacity:0.55;letter-spacing:0.02em;margin-left:6px;}
+  .wrap{background:#fff;border:1px solid var(--border);border-radius:14px;padding:0;overflow:hidden;}
+
+  /* Email header banner */
+  .banner{padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .banner.cream{background:#FAF1DE;}
+  .banner.yellow{background:#FFC533;}
+  .banner.petrol{background:#1F3A4D;}
+  .banner img.logo{height:32px;}
+  .banner .tag{font-family:'Chalkiez','Caveat Brush',cursive;font-size:28px;line-height:0.95;}
+  .banner.cream .tag, .banner.yellow .tag{color:#1F3A4D;}
+  .banner.petrol .tag{color:#FFC533;}
+
+  /* Photo hero banner — premium legibility masks */
+  .hero{position:relative;height:300px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;color:#FAF1DE;}
+  .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .hero::before{content:"";position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(180deg,rgba(31,58,77,0.7) 0%,rgba(31,58,77,0) 100%);z-index:1;}
+  .hero img.logo{position:absolute;top:24px;left:24px;height:22px;z-index:2;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.4));}
+  /* Premium petrol card anchoring the title */
+  .hero .card{position:relative;z-index:2;background:rgba(31,58,77,0.94);border:1px solid rgba(255,197,51,0.4);border-radius:14px;padding:18px 22px;display:inline-flex;flex-direction:column;gap:6px;align-self:flex-start;max-width:75%;box-shadow:0 18px 40px rgba(0,0,0,0.35);}
+  .hero .where{font-family:var(--font-heading);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#FFC533;opacity:0.95;}
+  .hero .ttl{font-family:'Chalkiez','Caveat Brush',cursive;font-size:42px;line-height:0.92;color:#FFC533;margin:0;}
+
+  /* Email body sample */
+  .ebody{padding:32px 40px;font-family:var(--font-body);color:var(--wlh-deep-petrol);}
+  .ebody h3{font-family:var(--font-heading);font-size:22px;font-weight:800;margin:0 0 8px;letter-spacing:-0.01em;}
+  .ebody p{font-size:14px;line-height:1.6;margin:0 0 14px;}
+  .ebody .cta{display:inline-block;background:var(--wlh-deep-petrol);color:var(--wlh-sun-yellow);font-family:var(--font-heading);font-weight:700;font-size:13px;letter-spacing:0.06em;padding:12px 22px;border-radius:999px;text-decoration:none;}
+  .ebody .promo-pct{font-family:'Lufga',sans-serif;font-size:48px;font-weight:900;line-height:0.9;letter-spacing:-0.03em;color:#1F3A4D;}
+  .ebody .key-block{background:#FAF1DE;border-radius:10px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;margin:8px 0 18px;}
+  .ebody .key-block .lbl{font-family:var(--font-heading);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--fg-muted);}
+  .ebody .key-block .val{font-family:ui-monospace,'SF Mono',monospace;font-size:18px;font-weight:700;color:#1F3A4D;letter-spacing:0.04em;}
+  .efoot{padding:20px 40px;background:#FAF1DE;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-body);font-size:11px;color:var(--fg-muted);}
+
+  /* Email signature */
+  .sig{padding:24px 28px;background:#FAF1DE;display:flex;gap:18px;align-items:center;}
+  .sig .av{width:64px;height:64px;border-radius:50%;background:var(--wlh-sun-yellow);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:800;font-size:22px;color:var(--wlh-deep-petrol);flex-shrink:0;}
+  .sig .info{display:flex;flex-direction:column;gap:2px;font-family:var(--font-body);font-size:12px;line-height:1.4;}
+  .sig .nm{font-family:var(--font-heading);font-size:15px;font-weight:800;}
+  .sig .role{color:var(--fg-muted);font-size:11px;}
+  .sig .div{height:1px;background:rgba(31,58,77,0.15);margin:6px 0;}
+  .sig .row{display:flex;gap:14px;align-items:center;}
+  .sig .logo{height:18px;}
+  .sig .social{display:flex;gap:6px;}
+  .sig .social a{width:22px;height:22px;border-radius:50%;background:var(--wlh-deep-petrol);color:var(--wlh-sun-yellow);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;font-family:var(--font-heading);}
+  .sig .tagline{font-family:'Chalkiez','Caveat Brush',cursive;font-size:16px;color:#1F3A4D;margin-top:4px;}
+</style></head>
+<body><div class="frame">
+
+<section>
+  <h2>9.1 · Header de email <small>3 variantes · cream / yellow / petrol</small></h2>
+  <div class="wrap" style="margin-bottom:10px;">
+    <div class="banner cream">
+      <img class="logo" src="../assets/logos/horizontal-wordmark-petrol.png" alt="">
+      <div class="tag">Seu porto seguro<br>no Chile</div>
+    </div>
+  </div>
+  <div class="wrap" style="margin-bottom:10px;">
+    <div class="banner yellow">
+      <img class="logo" src="../assets/logos/horizontal-wordmark-petrol.png" alt="">
+      <div class="tag">bem-vindo<br>de volta</div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="banner petrol">
+      <img class="logo" src="../assets/logos/horizontal-wordmark-yellow.png" alt="">
+      <div class="tag">sua reserva<br>está confirmada</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>9.2 · Email transacional · check-in <small>cabeçalho fotográfico + corpo + rodapé</small></h2>
+  <div class="wrap">
+    <div class="hero">
+      <img class="bg" src="../assets/photos/living-room.jpg" alt="">
+      <img class="logo" src="../assets/logos/horizontal-wordmark-yellow.png" alt="">
+      <div class="card">
+        <span class="where">Las Condes · Santiago, Chile</span>
+        <h2 class="ttl">apartamento El Golf 01</h2>
+      </div>
+    </div>
+    <div class="ebody">
+      <h3>Olá, Mariana — sua casa está pronta</h3>
+      <p>Ana, sua anfitriã, deixou as luzes acesas, o café fresquinho e um bilhete na mesa. O check-in é a partir das 15h.</p>
+      <div class="key-block">
+        <span class="lbl">código do cofre</span>
+        <span class="val">4 8 9 2</span>
+      </div>
+      <p>Wi-Fi e detalhes da casa estão no app · qualquer coisa, a Ana responde em minutos.</p>
+      <a href="#" class="cta">Ver detalhes da reserva</a>
+    </div>
+    <div class="efoot">
+      <span>We Love Homes · Las Condes, Santiago · 2026</span>
+      <span>Cancelar inscrição · Preferências</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>9.3 · Email de promoção <small>Onde + 15% off · paleta petrol</small></h2>
+  <div class="wrap">
+    <div class="banner petrol" style="padding:48px 40px;flex-direction:column;align-items:flex-start;gap:14px;">
+      <img class="logo" src="../assets/logos/horizontal-wordmark-yellow.png" alt="">
+      <div style="display:flex;align-items:flex-end;gap:18px;">
+        <span style="font-family:'Lufga',sans-serif;font-size:96px;font-weight:900;line-height:0.85;letter-spacing:-0.04em;color:#FFC533;">15%</span>
+        <span style="font-family:'Chalkiez','Caveat Brush',cursive;font-size:42px;color:#FAF1DE;line-height:0.95;padding-bottom:10px;">off em julho</span>
+      </div>
+    </div>
+    <div class="ebody">
+      <h3>Estadias longas em Las Condes</h3>
+      <p>Para quem quer ficar mais — 5 noites ou mais em apartamentos selecionados pela curadoria. <b>apartamento El Golf 01</b> entra na promo em julho.</p>
+      <a href="#" class="cta">Ver casas disponíveis</a>
+    </div>
+    <div class="efoot">
+      <span>We Love Homes · 2026</span>
+      <span>Cancelar inscrição · Preferências</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>9.4 · Assinaturas de email <small>3 estilos · host + time interno</small></h2>
+
+  <div class="wrap" style="margin-bottom:10px;">
+    <div class="sig">
+      <div class="av">AC</div>
+      <div class="info">
+        <div class="nm">Ana Carvalho</div>
+        <div class="role">Anfitriã · apartamento El Golf 01 · Las Condes, Santiago</div>
+        <div class="div"></div>
+        <div>ana@welovehomes.co · +56 9 9999 0000</div>
+        <div class="row">
+          <img src="../assets/logos/horizontal-wordmark-petrol.png" class="logo" alt="">
+          <div class="social"><a>ig</a><a>in</a></div>
+        </div>
+        <div class="tagline">Seu porto seguro no Chile</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-bottom:10px;">
+    <div class="sig" style="background:#1F3A4D;color:#FAF1DE;">
+      <div class="av" style="background:#FFC533;">JR</div>
+      <div class="info">
+        <div class="nm" style="color:#FFC533;">Júlia Reis</div>
+        <div class="role" style="color:rgba(250,241,222,0.7);">Head of Hospitality · We Love Homes</div>
+        <div class="div" style="background:rgba(250,241,222,0.15);"></div>
+        <div>julia@welovehomes.co · welovehomes.co</div>
+        <div class="row">
+          <img src="../assets/logos/horizontal-wordmark-yellow.png" class="logo" alt="">
+          <div class="social"><a>ig</a><a>in</a></div>
+        </div>
+        <div class="tagline" style="color:#FFC533;">Seu porto seguro no Chile</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="sig" style="background:#fff;border-left:4px solid var(--wlh-sun-yellow);">
+      <img src="../assets/logos/seal-vertical-wordmark-petrol.png" style="height:64px;flex-shrink:0;">
+      <div class="info">
+        <div class="nm">Pedro Lima</div>
+        <div class="role">Curadoria · We Love Homes Chile</div>
+        <div class="div"></div>
+        <div>pedro@welovehomes.co · +56 9 8888 0000</div>
+        <div class="tagline">"Seu porto seguro no Chile"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div></body></html>

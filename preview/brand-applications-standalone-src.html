@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<template id="__bundler_thumbnail" data-bg-color="#1F3A4D">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#1F3A4D"/>
+    <g transform="translate(600 400)">
+      <!-- umbrella canopy -->
+      <path d="M -180 0 A 180 180 0 0 1 180 0 Z" fill="#7A4A9E"/>
+      <!-- handle -->
+      <path d="M 0 0 L 0 140 Q 0 180 -40 180" stroke="#FAF1DE" stroke-width="14" fill="none" stroke-linecap="round"/>
+      <!-- heart accent -->
+      <path d="M 220 -160 c -18 -22 -52 -10 -52 18 c 0 22 22 36 52 56 c 30 -20 52 -34 52 -56 c 0 -28 -34 -40 -52 -18 z" fill="#FF7A66"/>
+      <!-- star accent -->
+      <path d="M -240 -180 l 14 30 l 32 4 l -24 22 l 6 32 l -28 -16 l -28 16 l 6 -32 l -24 -22 l 32 -4 z" fill="#FFC533"/>
+      <!-- wordmark -->
+      <text x="0" y="-220" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="84" fill="#FAF1DE">WeLove</text>
+      <text x="0" y="-140" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="84" fill="#FAF1DE">Homes</text>
+    </g>
+  </svg>
+</template>
+<style>
+  html,body{margin:0;padding:0;background:var(--wlh-sand-cream);color:var(--wlh-deep-petrol);}
+  .frame{padding:24px;display:flex;flex-direction:column;gap:22px;}
+  h2{font-family:var(--font-heading);font-size:11px;font-weight:700;letter-spacing:0.06em;margin:0 0 6px;}
+  h2 small{font-weight:500;opacity:0.55;letter-spacing:0.02em;margin-left:6px;}
+  .row{display:grid;gap:14px;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:1fr 1fr;}
+  .item{background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;}
+  .stage{aspect-ratio:4/3;border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+  .name{font-family:var(--font-heading);font-size:12px;font-weight:700;}
+  .desc{font-family:var(--font-body);font-size:10px;color:var(--fg-muted);line-height:1.5;}
+
+  /* MUG */
+  .mug{position:relative;width:180px;height:180px;}
+  .mug-body{position:absolute;inset:20px 35px 20px 20px;background:#FAF1DE;border-radius:14px;box-shadow:inset 0 -16px 24px rgba(31,58,77,0.08);display:flex;align-items:center;justify-content:center;}
+  .mug-handle{position:absolute;right:8px;top:54px;width:36px;height:72px;border:8px solid #FAF1DE;border-left:none;border-radius:0 36px 36px 0;}
+  .mug-body img{width:62%;}
+
+  /* TOTE */
+  .tote{position:relative;width:180px;height:200px;}
+  .tote-body{position:absolute;top:36px;left:0;right:0;bottom:0;background:#FFC533;border-radius:6px 6px 14px 14px;display:flex;align-items:center;justify-content:center;}
+  .tote-handle-l, .tote-handle-r{position:absolute;top:0;width:8px;height:60px;border:3px solid #1F3A4D;border-bottom:none;border-radius:30px 30px 0 0;}
+  .tote-handle-l{left:30px;width:36px;}
+  .tote-handle-r{right:30px;width:36px;}
+  .tote-body img{width:70%;}
+
+  /* POSTCARD */
+  .postcard{width:240px;height:160px;background:#FAF1DE;border-radius:8px;box-shadow:0 8px 18px rgba(31,58,77,0.12);display:grid;grid-template-columns:1fr 1fr;overflow:hidden;}
+  .postcard .left{background:linear-gradient(135deg,#E8C99A,#8B6240);position:relative;}
+  .postcard .left::after{content:"Memórias de Santiago";position:absolute;bottom:8px;left:10px;font-family:'Chalkiez','Caveat Brush',cursive;font-size:15px;color:#FAF1DE;line-height:1;}
+  .postcard .right{padding:8px 10px;display:flex;flex-direction:column;justify-content:space-between;}
+  .postcard .stamp{width:28px;height:32px;background:#FFC533;border:1.5px dashed #1F3A4D;align-self:flex-end;display:flex;align-items:center;justify-content:center;}
+  .postcard .stamp svg{width:18px;height:18px;}
+  .postcard .lines div{height:1px;background:rgba(31,58,77,0.2);margin-bottom:5px;}
+  .postcard .logo-mini{font-family:'Lufga',sans-serif;font-size:8px;font-weight:700;color:#1F3A4D;}
+
+  /* KEY TAG */
+  .keytag{display:flex;align-items:center;gap:0;}
+  .keytag .ring{width:36px;height:36px;border:4px solid #C9BC9E;border-radius:50%;}
+  .keytag .tag-body{margin-left:-8px;background:#1F3A4D;color:#FFC533;padding:14px 18px;border-radius:6px 14px 14px 6px;font-family:'Chalkiez','Caveat Brush',cursive;font-size:18px;line-height:1;display:flex;flex-direction:column;align-items:center;gap:4px;}
+  .keytag .tag-body small{font-family:'Lufga',sans-serif;font-size:8px;font-weight:600;color:#FAF1DE;}
+
+  /* BUSINESS CARD */
+  .biz{display:flex;gap:8px;}
+  .biz-card{width:165px;height:95px;border-radius:6px;box-shadow:0 6px 14px rgba(31,58,77,0.18);padding:10px 12px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative;}
+  .biz-front{background:linear-gradient(135deg,#FFC533 0%,#FFE99A 60%,#FAF1DE 100%);color:#1F3A4D;}
+  .biz-front::before{content:"";position:absolute;width:80px;height:80px;background:#5A8A6B;border-radius:50%;right:-30px;bottom:-30px;opacity:0.85;}
+  .biz-front::after{content:"";position:absolute;width:50px;height:50px;background:#C13B2E;border-radius:50%;left:-18px;top:-18px;opacity:0.95;}
+  .biz-front .seal{position:absolute;right:8px;top:6px;height:42px;width:auto;z-index:2;}
+  .biz-front .stack{position:relative;z-index:2;}
+  .biz-back{background:#1F3A4D;color:#FFC533;align-items:center;justify-content:center;display:flex;}
+  .biz-back img{height:60px;}
+  .biz .nm{font-family:'Lufga',sans-serif;font-size:11px;font-weight:800;line-height:1.2;}
+  .biz .role{font-family:'Lufga',sans-serif;font-size:8px;font-weight:600;color:#1F3A4D;opacity:0.7;}
+  .biz .contact{font-family:'Lufga',sans-serif;font-size:7px;line-height:1.5;position:relative;z-index:2;}
+
+  /* SIGNAGE */
+  .sign{width:200px;height:200px;background:#FFC533;border-radius:14px;box-shadow:0 14px 28px rgba(31,58,77,0.18);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px;text-align:center;gap:6px;}
+  .sign img{width:48%;}
+  .sign .title{font-family:'Lufga',sans-serif;font-size:13px;font-weight:800;color:#1F3A4D;line-height:1.15;}
+  .sign .sub{font-family:'Chalkiez','Caveat Brush',cursive;font-size:20px;color:#1F3A4D;line-height:1;}
+
+  /* T-SHIRT — flexible */
+  .tshirt{position:relative;width:160px;height:180px;}
+  .ts-body{position:absolute;top:24px;left:18px;right:18px;bottom:0;clip-path:polygon(0 0,18% 0,30% 14%,70% 14%,82% 0,100% 0,100% 100%,0 100%);display:flex;align-items:center;justify-content:center;padding:0 14px;}
+  .ts-sleeve-l, .ts-sleeve-r{position:absolute;top:24px;width:36px;height:50px;}
+  .ts-sleeve-l{left:0;clip-path:polygon(50% 0,100% 0,100% 80%,0 100%);}
+  .ts-sleeve-r{right:0;clip-path:polygon(0 0,50% 0,100% 100%,0 80%);}
+  .ts-white .ts-body, .ts-white .ts-sleeve-l, .ts-white .ts-sleeve-r{background:#FAF1DE;border:1px solid #E8DEC8;}
+  .ts-petrol .ts-body, .ts-petrol .ts-sleeve-l, .ts-petrol .ts-sleeve-r{background:#1F3A4D;}
+  .ts-yellow .ts-body, .ts-yellow .ts-sleeve-l, .ts-yellow .ts-sleeve-r{background:#FFC533;}
+  .ts-body img{max-width:100%;max-height:60%;display:block;}
+  .ts-print{font-family:'Chalkiez','Caveat Brush',cursive;line-height:0.95;text-align:center;}
+
+  /* WIFI CARD */
+  .wifi{background:#1F3A4D;color:#FAF1DE;width:200px;border-radius:14px;padding:12px 16px;display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center;box-shadow:0 14px 28px rgba(0,0,0,0.25);}
+  .wifi .icon-house{position:relative;width:48px;height:48px;display:flex;align-items:center;justify-content:center;}
+  .wifi .arcs{position:absolute;top:-2px;left:50%;transform:translateX(-50%);}
+  .wifi h4{font-family:'Lufga',sans-serif;font-size:16px;font-weight:800;margin:0;color:#FFC533;letter-spacing:-0.01em;}
+  .wifi .where{font-family:'Lufga',sans-serif;font-size:10px;font-weight:600;color:#FAF1DE;opacity:0.8;}
+  .wifi .pwd-label{font-family:'Lufga',sans-serif;font-size:8px;font-weight:600;color:#FAF1DE;opacity:0.6;letter-spacing:0.04em;margin-top:2px;}
+  .wifi .pwd{font-family:ui-monospace,'SF Mono',monospace;font-size:12px;font-weight:700;color:#FFC533;letter-spacing:0.04em;background:rgba(255,197,51,0.12);padding:5px 12px;border-radius:6px;border:1px dashed rgba(255,197,51,0.4);}
+  .wifi .foot{font-family:'Lufga',sans-serif;font-size:8px;color:#FAF1DE;opacity:0.55;margin-top:4px;}
+  .wifi .foot u{text-decoration:underline;text-underline-offset:2px;}
+</style></head>
+<body><div class="frame">
+
+<section>
+  <h2>7.1 · Aplicações de marca</h2>
+  <div class="row grid-3">
+
+    <div class="item">
+      <div class="stage" style="background:#FFE99A;">
+        <div class="mug">
+          <div class="mug-body"><img src="../assets/logos/seal-vertical-wordmark-petrol.png" alt=""></div>
+          <div class="mug-handle"></div>
+        </div>
+      </div>
+      <div class="name">Caneca · selo vertical petrol</div>
+      <div class="desc">Welcome kit · cozinha do anfitrião · loja</div>
+    </div>
+
+    <div class="item">
+      <div class="stage" style="background:#FAF1DE;">
+        <div class="tote">
+          <div class="tote-handle-l"></div>
+          <div class="tote-handle-r"></div>
+          <div class="tote-body"><img src="../assets/logos/horizontal-wordmark-petrol.png" alt=""></div>
+        </div>
+      </div>
+      <div class="name">Tote bag · sun yellow + petrol</div>
+      <div class="desc">Brinde de chegada · merch · feiras</div>
+    </div>
+
+    <div class="item">
+      <div class="stage" style="background:#5A8A6B;">
+        <div class="postcard">
+          <div class="left"></div>
+          <div class="right">
+            <div class="stamp">
+              <svg viewBox="0 0 24 24" fill="#1F3A4D"><path d="M12 2 L8 7 L9 7 L9 13 L15 13 L15 7 L16 7 Z M9 14 L15 14 L15 20 L9 20 Z"/></svg>
+            </div>
+            <div class="lines"><div></div><div></div><div></div><div></div></div>
+            <div class="logo-mini">We Love Homes</div>
+          </div>
+        </div>
+      </div>
+      <div class="name">Postal · cartão de boas-vindas</div>
+      <div class="desc">Deixado pelo host · escrito à mão · em português</div>
+    </div>
+
+    <div class="item">
+      <div class="stage" style="background:#FAF1DE;">
+        <div class="keytag">
+          <div class="ring"></div>
+          <div class="tag-body">bem-vindo<small>We Love Homes</small></div>
+        </div>
+      </div>
+      <div class="name">Chaveiro · entrega de chave</div>
+      <div class="desc">Petrol + Chalkiez · momento de boas-vindas</div>
+    </div>
+
+    <div class="item" style="grid-column:1/-1;">
+      <div class="stage" style="background:#FAF1DE;aspect-ratio:auto;padding:22px;">
+        <div style="display:flex;justify-content:center;width:100%;">
+
+          <!-- v1 — Classical cream — chosen design -->
+          <div style="display:flex;flex-direction:column;gap:14px;align-items:center;">
+            <div class="biz" style="transform:scale(1.4);transform-origin:center;margin:30px 0;">
+              <div class="biz-card" style="background:#FAF1DE;color:#1F3A4D;">
+                <img src="../assets/logos/seal-vertical-wordmark-petrol.png" alt="" style="position:absolute;top:8px;right:10px;height:42px;">
+                <div style="position:relative;z-index:2;"><div class="nm">Junior Neves</div><div class="role">Anfitrião · El Golf 01</div></div>
+                <div class="contact" style="font-family:'Lufga',sans-serif;font-size:7px;line-height:1.5;color:#1F3A4D;">junior@welovehomes.co<br>+56 9 9999 0000</div>
+              </div>
+              <div class="biz-card" style="background:#1F3A4D;align-items:center;justify-content:center;">
+                <img src="../assets/logos/horizontal-wordmark-yellow.png" alt="" style="height:18px;">
+              </div>
+            </div>
+            <div style="font-family:var(--font-heading);font-size:11px;font-weight:700;">Clássico cream</div>
+            <div style="font-family:var(--font-body);font-size:10px;color:var(--fg-muted);text-align:center;max-width:340px;">Selo no canto · paleta neutra · verso azul-escura. Modelo escolhido para todo o time.</div>
+          </div>
+
+          <!-- v2 — REMOVED -->
+          <template>
+          <div style="display:flex;flex-direction:column;gap:10px;align-items:center;">
+            <div class="biz">
+              <div class="biz-card" style="background:#FFC533;color:#1F3A4D;padding:12px;">
+                <div style="font-family:'Chalkiez','Caveat Brush',cursive;font-size:18px;line-height:0.9;color:#1F3A4D;">se sinta<br>em casa</div>
+                <div>
+                  <div class="nm">Ana Carvalho</div>
+                  <div style="font-family:'Lufga',sans-serif;font-size:7px;line-height:1.5;color:#1F3A4D;">ana@welovehomes.co</div>
+                </div>
+              </div>
+              <div class="biz-card" style="background:#1F3A4D;align-items:center;justify-content:center;flex-direction:column;gap:4px;">
+                <img src="../assets/logos/seal-vertical-wordmark-yellow.png" alt="" style="height:50px;">
+                <div style="font-family:'Lufga',sans-serif;font-size:6px;font-weight:600;color:#FAF1DE;letter-spacing:0.16em;">Las Condes · Santiago</div>
+              </div>
+            </div>
+            <div style="font-family:var(--font-heading);font-size:9px;font-weight:700;">v2 · Sun yellow manuscrito</div>
+            <div style="font-family:var(--font-body);font-size:9px;color:var(--fg-muted);text-align:center;">Frase Chalkiez · selo amarelo no verso</div>
+          </div>
+
+          </template>
+          <!-- v3 — REMOVED -->
+          <template>
+          <div style="display:flex;flex-direction:column;gap:10px;align-items:center;">
+            <div class="biz">
+              <div class="biz-card" style="padding:0;color:#FAF1DE;">
+                <img src="../assets/photos/city-window.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+                <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,58,77,0) 30%,rgba(31,58,77,0.85) 100%);"></div>
+                <img src="../assets/logos/horizontal-wordmark-yellow.png" alt="" style="position:absolute;top:8px;left:10px;height:11px;z-index:2;">
+                <div style="position:relative;z-index:2;align-self:flex-start;margin-top:auto;">
+                  <div class="nm" style="color:#FFC533;">apartamento El Golf 01</div>
+                  <div style="font-family:'Lufga',sans-serif;font-size:7px;line-height:1.5;color:#FAF1DE;opacity:0.85;">Las Condes · Santiago</div>
+                </div>
+              </div>
+              <div class="biz-card" style="background:#FAF1DE;color:#1F3A4D;padding:12px;">
+                <div class="nm">Ana Carvalho</div>
+                <div class="role">Anfitriã</div>
+                <div style="font-family:'Lufga',sans-serif;font-size:7px;line-height:1.5;color:#1F3A4D;">ana@welovehomes.co<br>+56 9 9999 0000<br>welovehomes.co</div>
+              </div>
+            </div>
+            <div style="font-family:var(--font-heading);font-size:9px;font-weight:700;">v3 · Foto do apartamento</div>
+            <div style="font-family:var(--font-body);font-size:9px;color:var(--fg-muted);text-align:center;">Frente fotográfica · verso de serviço</div>
+          </div>
+
+          </template>
+          <!-- v4 — REMOVED -->
+          <template>
+          <div style="display:flex;flex-direction:column;gap:10px;align-items:center;">
+            <div class="biz">
+              <div class="biz-card" style="background:#FAF1DE;color:#1F3A4D;align-items:flex-start;justify-content:space-between;padding:14px;">
+                <img src="../assets/logos/mark-home.png" alt="" style="height:24px;">
+                <div>
+                  <div class="nm">Ana Carvalho</div>
+                  <div class="role">anfitriã</div>
+                  <div style="font-family:'Lufga',sans-serif;font-size:7px;line-height:1.5;color:#1F3A4D;margin-top:3px;">ana@welovehomes.co</div>
+                </div>
+              </div>
+              <div class="biz-card" style="background:#FFC533;align-items:center;justify-content:center;color:#1F3A4D;">
+                <div style="font-family:'Lufga',sans-serif;font-size:9px;font-weight:800;letter-spacing:0.18em;">WE LOVE HOMES</div>
+                <div style="font-family:'Chalkiez','Caveat Brush',cursive;font-size:24px;color:#1F3A4D;line-height:0.95;margin-top:4px;">El Golf 01</div>
+              </div>
+            </div>
+            <div style="font-family:var(--font-heading);font-size:9px;font-weight:700;">v4 · Mark minimalista</div>
+            <div style="font-family:var(--font-body);font-size:9px;color:var(--fg-muted);text-align:center;">Só mark + tipografia · verso amarelo decorativo</div>
+          </div>
+
+          </template>
+          <!-- v5 — REMOVED -->
+          <template>
+          <div style="display:flex;flex-direction:column;gap:10px;align-items:center;">
+            <div class="biz">
+              <div class="biz-card" style="background:#1F3A4D;color:#FAF1DE;justify-content:space-between;padding:14px;">
+                <img src="../assets/logos/horizontal-wordmark-yellow.png" alt="" style="height:13px;align-self:flex-start;">
+                <div>
+                  <div class="nm" style="color:#FFC533;">Ana Carvalho</div>
+                  <div style="font-family:'Lufga',sans-serif;font-size:7.5px;line-height:1.5;color:#FAF1DE;opacity:0.85;">anfitriã · El Golf 01<br>ana@welovehomes.co</div>
+                </div>
+              </div>
+              <div class="biz-card" style="background:#FFC533;align-items:center;justify-content:center;padding:8px;">
+                <svg viewBox="0 0 120 80" width="100%" height="100%">
+                  <path d="M20 60 L60 30 L100 60 Z" fill="#5A8A6B" stroke="#1F3A4D" stroke-width="2.5" stroke-linejoin="round"/>
+                  <rect x="40" y="38" width="40" height="22" fill="#FAF1DE" stroke="#1F3A4D" stroke-width="2.5"/>
+                  <rect x="54" y="45" width="12" height="15" fill="#1F3A4D"/>
+                  <circle cx="95" cy="22" r="7" fill="#C13B2E"/>
+                  <g stroke="#C13B2E" stroke-width="1.6" stroke-linecap="round">
+                    <line x1="95" y1="10" x2="95" y2="6"/>
+                    <line x1="107" y1="22" x2="111" y2="22"/>
+                    <line x1="103" y1="14" x2="106" y2="11"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div style="font-family:var(--font-heading);font-size:9px;font-weight:700;">v5 · Frente petrol + ilustração</div>
+            <div style="font-family:var(--font-body);font-size:9px;color:var(--fg-muted);text-align:center;">Casa + sol no verso · stroke da família de spots</div>
+          </div>
+
+          </template>
+          <!-- v6 — REMOVED -->
+          <template>
+          <div style="display:flex;flex-direction:column;gap:10px;align-items:center;">
+            <div class="biz">
+              <div class="biz-card" style="background:#FAF1DE;color:#1F3A4D;justify-content:space-between;padding:0;overflow:hidden;">
+                <div style="background:#5A8A6B;height:24px;display:flex;align-items:center;padding:0 12px;"><img src="../assets/logos/horizontal-wordmark-yellow.png" alt="" style="height:11px;"></div>
+                <div style="padding:8px 12px 12px;">
+                  <div class="nm">Ana Carvalho</div>
+                  <div class="role">anfitriã</div>
+                  <div style="font-family:'Lufga',sans-serif;font-size:7px;line-height:1.5;color:#1F3A4D;margin-top:3px;">apartamento El Golf 01<br>ana@welovehomes.co</div>
+                </div>
+              </div>
+              <div class="biz-card" style="background:#FAF1DE;align-items:center;justify-content:center;padding:10px;">
+                <img src="../assets/logos/seal-vertical-wordmark-petrol.png" alt="" style="height:55px;">
+                <div style="position:absolute;left:8px;bottom:6px;font-family:'Chalkiez','Caveat Brush',cursive;font-size:14px;color:#5A8A6B;">obrigada</div>
+              </div>
+            </div>
+            <div style="font-family:var(--font-heading);font-size:9px;font-weight:700;">v6 · Faixa cactus green</div>
+            <div style="font-family:var(--font-body);font-size:9px;color:var(--fg-muted);text-align:center;">Topo verde · selo no verso · agradecimento manuscrito</div>
+          </div>
+
+          </template>
+
+        </div>
+      </div>
+      <div class="name">Cartão de visita · Clássico cream</div>
+      <div class="desc">Versão escolhida · selo vertical no canto · verso azul-escura com lockup amarelo</div>
+    </div>
+
+    <div class="item">
+      <div class="stage" style="background:#FAF1DE;">
+        <div class="sign">
+          <img src="../assets/logos/seal-vertical-wordmark-petrol.png" alt="">
+          <div class="title">apartamento El Golf 01</div>
+          <div class="sub">Las Condes</div>
+        </div>
+      </div>
+      <div class="name">Plaquinha de entrada</div>
+      <div class="desc">Madeira ou acrílico · frente da casa · check-in</div>
+    </div>
+
+    <div class="item" style="grid-column:1/-1;">
+      <div class="stage" style="background:#FAF1DE;aspect-ratio:auto;padding:18px 22px 8px;">
+        <style>
+          .tee-card-row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;width:100%;}
+          .tee-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 12px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+          .tee-pair{display:flex;gap:10px;align-items:flex-end;justify-content:center;}
+          .tee-pair .tshirt{transform:scale(0.92);transform-origin:bottom center;}
+          .tee-side{font-family:'Lufga',sans-serif;font-size:8px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--fg-muted);}
+          .tee-sides{display:flex;justify-content:space-between;width:78%;margin-top:-2px;}
+          .tee-cap{font-family:var(--font-heading);font-size:11px;font-weight:700;color:#1F3A4D;text-align:center;line-height:1.3;}
+          .tee-cap small{display:block;font-weight:500;font-size:9px;letter-spacing:0.04em;color:var(--fg-muted);margin-top:2px;}
+          .ts-back-print{font-family:'Chalkiez','Caveat Brush',cursive;line-height:0.95;text-align:center;font-size:18px;}
+        </style>
+
+        <div class="tee-card-row">
+
+          <!-- BRANCA · selo petrol -->
+          <div class="tee-card">
+            <div class="tee-pair">
+              <div class="tshirt ts-white"><div class="ts-sleeve-l"></div><div class="ts-sleeve-r"></div><div class="ts-body"><img src="../assets/logos/seal-vertical-wordmark-petrol.png" alt="" style="max-height:88%;"></div></div>
+              <div class="tshirt ts-white"><div class="ts-sleeve-l"></div><div class="ts-sleeve-r"></div><div class="ts-body"><div class="ts-back-print" style="color:#1F3A4D;">Seu porto<br>seguro<br>no Chile</div></div></div>
+            </div>
+            <div class="tee-sides"><span class="tee-side">frente</span><span class="tee-side">costas</span></div>
+            <div class="tee-cap">Branca<small>selo vertical · deep petrol</small></div>
+          </div>
+
+          <!-- BRANCA · selo cactus -->
+          <div class="tee-card">
+            <div class="tee-pair">
+              <div class="tshirt ts-white"><div class="ts-sleeve-l"></div><div class="ts-sleeve-r"></div><div class="ts-body"><img src="../assets/logos/seal-vertical-wordmark-cactus.png" alt="" style="max-height:88%;"></div></div>
+              <div class="tshirt ts-white"><div class="ts-sleeve-l"></div><div class="ts-sleeve-r"></div><div class="ts-body"><div class="ts-back-print" style="color:#0F4F4A;">Seu porto<br>seguro<br>no Chile</div></div></div>
+            </div>
+            <div class="tee-sides"><span class="tee-side">frente</span><span class="tee-side">costas</span></div>
+            <div class="tee-cap">Branca<small>selo vertical · cactus green</small></div>
+          </div>
+
+          <!-- AMARELA · selo petrol -->
+          <div class="tee-card">
+            <div class="tee-pair">
+              <div class="tshirt ts-yellow"><div class="ts-sleeve-l"></div><div class="ts-sleeve-r"></div><div class="ts-body"><img src="../assets/logos/seal-vertical-wordmark-petrol.png" alt="" style="max-height:88%;"></div></div>
+              <div class="tshirt ts-yellow"><div class="ts-sleeve-l"></div><div class="ts-sleeve-r"></div><div class="ts-body"><div class="ts-back-print" style="color:#1F3A4D;">Seu porto<br>seguro<br>no Chile</div></div></div>
+            </div>
+            <div class="tee-sides"><span class="tee-side">frente</span><span class="tee-side">costas</span></div>
+            <div class="tee-cap">Amarela<small>selo vertical · deep petrol</small></div>
+          </div>
+
+          <!-- AMARELA · selo cactus -->
+          <div class="tee-card">
+            <div class="tee-pair">
+              <div class="tshirt ts-yellow"><div class="ts-sleeve-l"></div><div class="ts-sleeve-r"></div><div class="ts-body"><img src="../assets/logos/seal-vertical-wordmark-cactus.png" alt="" style="max-height:88%;"></div></div>
+              <div class="tshirt ts-yellow"><div class="ts-sleeve-l"></div><div class="ts-sleeve-r"></div><div class="ts-body"><div class="ts-back-print" style="color:#0F4F4A;">Seu porto<br>seguro<br>no Chile</div></div></div>
+            </div>
+            <div class="tee-sides"><span class="tee-side">frente</span><span class="tee-side">costas</span></div>
+            <div class="tee-cap">Amarela<small>selo vertical · cactus green</small></div>
+          </div>
+
+          <!-- DEEP PETROL · selo yellow -->
+          <div class="tee-card">
+            <div class="tee-pair">
+              <div class="tshirt ts-petrol"><div class="ts-sleeve-l"></div><div class="ts-sleeve-r"></div><div class="ts-body"><img src="../assets/logos/seal-vertical-wordmark-yellow.png" alt="" style="max-height:88%;"></div></div>
+              <div class="tshirt ts-petrol"><div class="ts-sleeve-l"></div><div class="ts-sleeve-r"></div><div class="ts-body"><div class="ts-back-print" style="color:#FFC533;">Seu porto<br>seguro<br>no Chile</div></div></div>
+            </div>
+            <div class="tee-sides"><span class="tee-side">frente</span><span class="tee-side">costas</span></div>
+            <div class="tee-cap">Deep petrol<small>selo vertical · sun yellow</small></div>
+          </div>
+
+          <!-- DEEP PETROL · selo white -->
+          <div class="tee-card">
+            <div class="tee-pair">
+              <div class="tshirt ts-petrol"><div class="ts-sleeve-l"></div><div class="ts-sleeve-r"></div><div class="ts-body"><img src="../assets/logos/seal-vertical-wordmark-white.png" alt="" style="max-height:88%;"></div></div>
+              <div class="tshirt ts-petrol"><div class="ts-sleeve-l"></div><div class="ts-sleeve-r"></div><div class="ts-body"><div class="ts-back-print" style="color:#FAF1DE;">Seu porto<br>seguro<br>no Chile</div></div></div>
+            </div>
+            <div class="tee-sides"><span class="tee-side">frente</span><span class="tee-side">costas</span></div>
+            <div class="tee-cap">Deep petrol<small>selo vertical · branco</small></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="name">Camisetas · time interno · 6 variações</div>
+      <div class="desc">Selo vertical em 4 cores · branca, amarela e deep petrol · costas em Chalkiez "Seu porto seguro no Chile"</div>
+    </div>
+
+    <div class="item">
+      <div class="stage" style="background:#FAF1DE;">
+        <div class="wifi">
+          <div class="icon-house">
+            <svg class="arcs" viewBox="0 0 64 30" width="36" height="18" fill="none" stroke="#FFC533" stroke-width="3" stroke-linecap="round">
+              <path d="M8 24 q24 -22 48 0"/>
+              <path d="M16 26 q16 -14 32 0" opacity="0.7"/>
+              <circle cx="32" cy="28" r="2.5" fill="#FFC533"/>
+            </svg>
+            <svg viewBox="0 0 64 64" width="38" height="38" fill="#FFC533" style="margin-top:10px;">
+              <path d="M32 12 L8 32 L14 32 L14 56 L50 56 L50 32 L56 32 Z"/>
+            </svg>
+          </div>
+          <h4>Wi-Fi</h4>
+          <div class="where">apartamento El Golf 01</div>
+          <div class="pwd-label">senha</div>
+          <div class="pwd">welovehomes_2026</div>
+        </div>
+      </div>
+      <div class="name">Cartão de Wi-Fi</div>
+      <div class="desc">Apoio prático na casa · ícone casinha + sinal</div>
+    </div>
+
+  </div>
+</section>
+
+</div></body></html>

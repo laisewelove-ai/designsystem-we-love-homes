@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--wlh-sand-cream);color:var(--wlh-deep-petrol);}
+  .frame{padding:24px;display:flex;flex-direction:column;gap:24px;}
+  h2{font-family:var(--font-heading);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 6px;}
+  h2 small{font-weight:500;opacity:0.55;letter-spacing:0.06em;text-transform:none;margin-left:6px;}
+  .row{display:grid;gap:14px;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:1fr 1fr;}
+
+  /* Listing card */
+  .listing{background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--sh-sm);display:flex;flex-direction:column;}
+  .listing .photo{aspect-ratio:4/3;background-size:cover;background-position:center;position:relative;}
+  .listing .heart{position:absolute;top:10px;right:10px;width:32px;height:32px;background:rgba(255,255,255,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+  .listing .badge{position:absolute;top:10px;left:10px;font-family:var(--font-heading);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:var(--wlh-sun-yellow);color:var(--wlh-deep-petrol);padding:4px 9px;border-radius:999px;}
+  .listing .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;}
+  .listing .top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .listing .title{font-family:var(--font-heading);font-size:15px;font-weight:700;line-height:1.25;}
+  .listing .loc{font-family:var(--font-body);font-size:12px;color:var(--fg-muted);}
+  .listing .rating{font-family:var(--font-heading);font-size:12px;font-weight:600;display:flex;align-items:center;gap:3px;white-space:nowrap;}
+  .listing .price{font-family:var(--font-heading);font-size:15px;font-weight:700;margin-top:6px;}
+  .listing .price small{font-weight:500;color:var(--fg-muted);font-size:12px;}
+
+  .ph-1{background:linear-gradient(135deg,#E8C99A,#8B6240);}
+  .ph-2{background:linear-gradient(160deg,#B5D4DD,#5C8AA6);}
+  .ph-3{background:linear-gradient(180deg,#FAF1DE,#E89028);}
+  .ph-4{background:linear-gradient(200deg,#5A8A6B,#1F3A4D);}
+  .ph-5{background:linear-gradient(135deg,#FFE99A,#FFC533);}
+  .ph-6{background:linear-gradient(135deg,#FAF1DE,#A4B996);}
+
+  /* Review card */
+  .review{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px;}
+  .review .head{display:flex;align-items:center;gap:10px;}
+  .av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:14px;}
+  .review .name{font-family:var(--font-heading);font-size:13px;font-weight:700;}
+  .review .meta{font-family:var(--font-body);font-size:11px;color:var(--fg-muted);}
+  .review .stars{color:var(--wlh-sun-yellow);font-size:13px;letter-spacing:0.5px;}
+  .review .text{font-family:var(--font-body);font-size:13px;line-height:1.55;color:var(--wlh-deep-petrol);}
+
+  /* Host card */
+  .host{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;}
+  .host .av-lg{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:22px;}
+  .host .name{font-family:var(--font-heading);font-size:16px;font-weight:700;margin-top:4px;}
+  .host .role{font-family:var(--font-body);font-size:12px;color:var(--fg-muted);}
+  .host .stats{display:flex;gap:18px;margin:6px 0;font-family:var(--font-heading);font-size:11px;}
+  .host .stats div{display:flex;flex-direction:column;align-items:center;}
+  .host .stats strong{font-size:16px;font-weight:800;color:var(--wlh-deep-petrol);}
+  .host .stats span{color:var(--fg-muted);font-weight:500;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;}
+  .host .btn{font-family:var(--font-heading);font-weight:600;font-size:13px;padding:10px 18px;border-radius:999px;background:var(--wlh-deep-petrol);color:var(--wlh-sand-cream);border:none;width:100%;cursor:pointer;}
+  .host .super{font-family:var(--font-heading);font-size:9px;font-weight:700;letter-spacing:0.1em;background:var(--wlh-sun-yellow);color:var(--wlh-deep-petrol);padding:3px 8px;border-radius:999px;}
+</style></head>
+<body><div class="frame">
+
+<section>
+  <h2>4.1 · Listing card <small>casa anunciada · usado em busca, favoritos, mapa</small></h2>
+  <div class="row grid-3">
+    <div class="listing">
+      <div class="photo ph-1">
+        <span class="badge">Superhost</span>
+        <span class="heart">♡</span>
+      </div>
+      <div class="body">
+        <div class="top">
+          <div>
+            <div class="title">Casa de Pedra · Tiradentes</div>
+            <div class="loc">Minas Gerais · 4 hóspedes</div>
+          </div>
+          <div class="rating">★ 4.92</div>
+        </div>
+        <div class="price">R$ 480 <small>/ noite</small></div>
+      </div>
+    </div>
+
+    <div class="listing">
+      <div class="photo ph-2">
+        <span class="heart">♡</span>
+      </div>
+      <div class="body">
+        <div class="top">
+          <div>
+            <div class="title">Apto vista mar · Itacaré</div>
+            <div class="loc">Bahia · 6 hóspedes</div>
+          </div>
+          <div class="rating">★ 4.78</div>
+        </div>
+        <div class="price">R$ 640 <small>/ noite</small></div>
+      </div>
+    </div>
+
+    <div class="listing">
+      <div class="photo ph-4">
+        <span class="badge">Novo</span>
+        <span class="heart" style="background:#FFC533;">♥</span>
+      </div>
+      <div class="body">
+        <div class="top">
+          <div>
+            <div class="title">Cabana na Serra · Monte Verde</div>
+            <div class="loc">MG · 2 hóspedes</div>
+          </div>
+          <div class="rating">★ 5.00</div>
+        </div>
+        <div class="price">R$ 380 <small>/ noite</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>4.2 · Review card <small>avaliação de hóspede</small></h2>
+  <div class="row grid-2">
+    <div class="review">
+      <div class="head">
+        <div class="av" style="background:var(--wlh-sun-yellow);">MC</div>
+        <div>
+          <div class="name">Mariana Costa</div>
+          <div class="meta">3 noites · Outubro 2025</div>
+        </div>
+      </div>
+      <div class="stars">★★★★★</div>
+      <div class="text">A casa é ainda mais linda do que nas fotos. Receptividade da Ana foi impecável — chegou bilhete escrito à mão e café fresquinho. Voltaremos.</div>
+    </div>
+
+    <div class="review">
+      <div class="head">
+        <div class="av" style="background:var(--wlh-cactus-green);color:#fff;">JR</div>
+        <div>
+          <div class="name">João Ribeiro</div>
+          <div class="meta">5 noites · Setembro 2025</div>
+        </div>
+      </div>
+      <div class="stars">★★★★<span style="color:var(--border);">★</span></div>
+      <div class="text">Localização ótima, varanda com vista incrível. Faltou wi-fi mais estável para quem precisa trabalhar — fora isso, perfeito.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>4.3 · Host card <small>perfil do anfitrião</small></h2>
+  <div class="row grid-3">
+    <div class="host">
+      <div class="av-lg" style="background:var(--wlh-sun-yellow);">AC</div>
+      <span class="super">★ Superhost</span>
+      <div class="name">Ana Carvalho</div>
+      <div class="role">Anfitriã desde 2021 · Tiradentes</div>
+      <div class="stats">
+        <div><strong>34</strong><span>Reservas</span></div>
+        <div><strong>4.92</strong><span>Avaliação</span></div>
+        <div><strong>2h</strong><span>Resposta</span></div>
+      </div>
+      <button class="btn">Enviar mensagem</button>
+    </div>
+
+    <div class="host">
+      <div class="av-lg" style="background:var(--wlh-sky-wash);">PL</div>
+      <div class="name">Pedro Lima</div>
+      <div class="role">Anfitrião desde 2024 · Itacaré</div>
+      <div class="stats">
+        <div><strong>8</strong><span>Reservas</span></div>
+        <div><strong>4.78</strong><span>Avaliação</span></div>
+        <div><strong>4h</strong><span>Resposta</span></div>
+      </div>
+      <button class="btn">Enviar mensagem</button>
+    </div>
+
+    <div class="host">
+      <div class="av-lg" style="background:var(--wlh-cactus-green);color:#fff;">RS</div>
+      <span class="super">★ Superhost</span>
+      <div class="name">Renata Souza</div>
+      <div class="role">Anfitriã desde 2019 · Monte Verde</div>
+      <div class="stats">
+        <div><strong>112</strong><span>Reservas</span></div>
+        <div><strong>5.00</strong><span>Avaliação</span></div>
+        <div><strong>30m</strong><span>Resposta</span></div>
+      </div>
+      <button class="btn">Enviar mensagem</button>
+    </div>
+  </div>
+</section>
+
+</div></body></html>

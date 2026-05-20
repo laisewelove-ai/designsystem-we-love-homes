@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Card</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--wlh-off-white); }
+  .card-frame { padding: 24px 32px; display: flex; flex-direction: column; gap: 4px; }
+  .label { font-family: var(--font-heading); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); font-weight: 600; width: 80px; flex-shrink:0; }
+  .row { display: flex; align-items: baseline; gap: 16px; }
+  .specimen { font-family: var(--font-heading); color: var(--fg); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+</style>
+</head>
+<body>
+<div class="card-frame">
+  <div class="row"><span class="label">H1 · 56</span><span class="specimen" style="font-size:56px;font-weight:800;">Encontre seu lar.</span></div>
+  <div class="row"><span class="label">H2 · 40</span><span class="specimen" style="font-size:40px;">Bairros que a gente ama</span></div>
+  <div class="row"><span class="label">H3 · 28</span><span class="specimen" style="font-size:28px;">Lastarria, Santiago</span></div>
+  <div class="row"><span class="label">H4 · 22</span><span class="specimen" style="font-size:22px;">Detalhes da reserva</span></div>
+</div>
+</body>
+</html>

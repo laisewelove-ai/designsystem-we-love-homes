@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Card</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--wlh-off-white); }
+  .card-frame { padding: 24px 32px; display: flex; flex-direction: column; gap: 14px; }
+  .row { display: flex; align-items: baseline; gap: 16px; }
+  .label { font-family: var(--font-heading); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-muted); font-weight: 600; width: 110px; flex-shrink:0; }
+  .body-lg { font-family: var(--font-body); font-size: 18px; line-height: 1.5; color: var(--fg); }
+  .body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--fg); }
+  .body-sm { font-family: var(--font-body); font-size: 14px; line-height: 1.5; color: var(--fg-muted); }
+  .caption { font-family: var(--font-body); font-size: 12px; line-height: 1.4; color: var(--fg-subtle); }
+  .eyebrow { font-family: var(--font-heading); font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-muted); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="card-frame">
+  <div class="row"><span class="label">Eyebrow · 12</span><span class="eyebrow">Bairro Lastarria</span></div>
+  <div class="row"><span class="label">Body LG · 18</span><span class="body-lg">A gente entrega a chave. Você entrega o coração.</span></div>
+  <div class="row"><span class="label">Body · 16</span><span class="body">Apartamento de 2 quartos no coração de Santiago, com café quentinho na chegada.</span></div>
+  <div class="row"><span class="label">Body SM · 14</span><span class="body-sm">5 noites · 2 hóspedes · até 30 de junho</span></div>
+  <div class="row"><span class="label">Caption · 12</span><span class="caption">Reservado por Maria há 2 dias</span></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--wlh-sand-cream);color:var(--wlh-deep-petrol);}
+  .frame{padding:24px;display:flex;flex-direction:column;gap:24px;}
+  h2{font-family:var(--font-heading);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 4px;}
+  h2 small{font-weight:500;opacity:0.55;letter-spacing:0.06em;text-transform:none;margin-left:6px;}
+  .row{display:grid;gap:12px;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;}
+  .card .stage{flex:1;display:flex;align-items:center;justify-content:center;min-height:140px;position:relative;}
+  .label{font-family:var(--font-heading);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;}
+  .ok{color:var(--wlh-cactus-green);}
+  .no{color:#C13B2E;}
+  .desc{font-family:var(--font-body);font-size:11px;color:var(--fg-muted);line-height:1.5;}
+
+  /* Clear space visualization */
+  .clearspace{position:relative;display:inline-block;}
+  .clearspace::before{
+    content:"";position:absolute;inset:-32px;
+    background:repeating-linear-gradient(45deg,rgba(255,197,51,0.18),rgba(255,197,51,0.18) 6px,transparent 6px,transparent 12px);
+    border:1.5px dashed rgba(31,58,77,0.35);border-radius:6px;
+  }
+  .x-marker{position:absolute;font-family:var(--font-heading);font-weight:700;font-size:10px;color:var(--wlh-deep-petrol);background:var(--wlh-sun-yellow);padding:2px 5px;border-radius:3px;}
+
+  /* Don't variants */
+  .stretched img{transform:scaleX(1.6);}
+  .squished img{transform:scaleY(0.5);}
+  .rotated img{transform:rotate(-12deg);}
+  .recolored{filter:hue-rotate(170deg) saturate(1.4);}
+  .lowcontrast{background:#FFE99A;}
+  .busy{background:url("../assets/patterns/heart-icon-pattern.png") center/120px repeat;}
+  .outline{filter:drop-shadow(0 0 0 #1F3A4D) drop-shadow(0 0 0 #1F3A4D);opacity:0.4;}
+
+  .strike{position:relative;}
+  .strike::after{
+    content:"";position:absolute;inset:8px;
+    background:linear-gradient(135deg,transparent 49.2%,#C13B2E 49.4%,#C13B2E 50.6%,transparent 50.8%);
+    pointer-events:none;
+  }
+
+  .grid-2{grid-template-columns:1fr 1fr;}
+  .grid-3{grid-template-columns:1fr 1fr 1fr;}
+
+  .minsize{display:flex;gap:24px;align-items:flex-end;justify-content:center;flex-wrap:wrap;}
+  .minsize > div{display:flex;flex-direction:column;align-items:center;gap:6px;}
+  .minsize img{display:block;}
+  .minsize .px{font-family:ui-monospace,monospace;font-size:9px;color:var(--fg-muted);}
+</style></head>
+<body><div class="frame">
+
+<section>
+  <h2>1.1 · Clear space <small>x = altura da casinha · sempre ≥ 1x ao redor</small></h2>
+  <div class="card">
+    <div class="stage" style="padding:60px 40px;">
+      <div class="clearspace">
+        <img src="../assets/logos/horizontal-wordmark-petrol.png" alt="logo" style="height:64px;display:block;">
+        <span class="x-marker" style="top:-44px;left:50%;transform:translateX(-50%);">1x</span>
+        <span class="x-marker" style="bottom:-44px;left:50%;transform:translateX(-50%);">1x</span>
+        <span class="x-marker" style="left:-46px;top:50%;transform:translateY(-50%);">1x</span>
+        <span class="x-marker" style="right:-46px;top:50%;transform:translateY(-50%);">1x</span>
+      </div>
+    </div>
+    <div class="desc">Reserve ao redor do logo uma área livre igual à altura da casinha (1x). Nada — texto, imagem, borda — pode invadir essa zona.</div>
+  </div>
+</section>
+
+<section>
+  <h2>1.2 · Tamanho mínimo <small>preserva legibilidade do wordmark</small></h2>
+  <div class="card">
+    <div class="stage minsize" style="padding:30px;">
+      <div>
+        <img src="../assets/logos/horizontal-wordmark-petrol.png" style="height:18px;">
+        <div class="px">Digital · 18px alt.</div>
+      </div>
+      <div>
+        <img src="../assets/logos/seal-vertical-wordmark-petrol.png" style="height:32px;">
+        <div class="px">Selo · 32px alt.</div>
+      </div>
+      <div>
+        <img src="../assets/logos/horizontal-wordmark-petrol.png" style="height:36px;">
+        <div class="px">Print · 8mm alt.</div>
+      </div>
+    </div>
+    <div class="desc">Abaixo desses tamanhos, prefira o mark sozinho (casinha) — ele ainda funciona até ~16px.</div>
+  </div>
+</section>
+
+<section>
+  <h2>1.3 · Faça assim ✓ <small>preferências corretas</small></h2>
+  <div class="row grid-3">
+    <div class="card">
+      <div class="stage" style="background:#FAF1DE;border-radius:10px;">
+        <img src="../assets/logos/horizontal-wordmark-petrol.png" style="width:80%;">
+      </div>
+      <div class="label ok">✓ contraste alto</div>
+      <div class="desc">Petrol sobre cream — combinação primária.</div>
+    </div>
+    <div class="card">
+      <div class="stage" style="background:#1F3A4D;border-radius:10px;">
+        <img src="../assets/logos/horizontal-wordmark-yellow.png" style="width:80%;">
+      </div>
+      <div class="label ok">✓ versão dark</div>
+      <div class="desc">Yellow sobre petrol — em fundos escuros.</div>
+    </div>
+    <div class="card">
+      <div class="stage" style="background:#FAF1DE;border-radius:10px;">
+        <img src="../assets/logos/seal-vertical-primary.png" style="height:130px;">
+      </div>
+      <div class="label ok">✓ selo completo</div>
+      <div class="desc">Quando há espaço, o selo vertical é prioritário.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>1.4 · Não faça ✗ <small>misuses comuns</small></h2>
+  <div class="row grid-3">
+    <div class="card">
+      <div class="stage strike stretched" style="background:#FAF1DE;border-radius:10px;">
+        <img src="../assets/logos/horizontal-wordmark-petrol.png" style="width:60%;">
+      </div>
+      <div class="label no">✗ não estique</div>
+      <div class="desc">Mantenha sempre a proporção original.</div>
+    </div>
+    <div class="card">
+      <div class="stage strike squished" style="background:#FAF1DE;border-radius:10px;">
+        <img src="../assets/logos/horizontal-wordmark-petrol.png" style="width:80%;">
+      </div>
+      <div class="label no">✗ não comprima</div>
+      <div class="desc">Distorção vertical é proibida.</div>
+    </div>
+    <div class="card">
+      <div class="stage strike rotated" style="background:#FAF1DE;border-radius:10px;">
+        <img src="../assets/logos/horizontal-wordmark-petrol.png" style="width:75%;">
+      </div>
+      <div class="label no">✗ não gire</div>
+      <div class="desc">O logo é sempre horizontal ou em selo vertical.</div>
+    </div>
+    <div class="card">
+      <div class="stage strike" style="background:#FAF1DE;border-radius:10px;">
+        <img src="../assets/logos/horizontal-wordmark-petrol.png" style="width:80%;filter:hue-rotate(170deg) saturate(1.4);">
+      </div>
+      <div class="label no">✗ não recolora</div>
+      <div class="desc">Use só as 4 versões de cor oficiais.</div>
+    </div>
+    <div class="card">
+      <div class="stage strike lowcontrast" style="background:#FFE99A;border-radius:10px;">
+        <img src="../assets/logos/horizontal-wordmark-yellow.png" style="width:80%;">
+      </div>
+      <div class="label no">✗ baixo contraste</div>
+      <div class="desc">Não use yellow sobre lemon/sand.</div>
+    </div>
+    <div class="card">
+      <div class="stage strike busy" style="border-radius:10px;">
+        <img src="../assets/logos/horizontal-wordmark-petrol.png" style="width:80%;">
+      </div>
+      <div class="label no">✗ fundo ruidoso</div>
+      <div class="desc">Sempre sobre superfície sólida e calma.</div>
+    </div>
+  </div>
+</section>
+
+</div></body></html>

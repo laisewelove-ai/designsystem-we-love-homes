@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin:0; padding:0; background: var(--wlh-sand-cream); }
+  .frame { padding: 22px 24px; display:flex; flex-direction:column; gap:14px; }
+  .row { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .label { font-family: var(--font-heading); font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color: var(--fg-muted); font-weight:600; width: 90px; }
+  .btn { font-family: var(--font-heading); font-weight:600; font-size:14px; cursor:pointer; transition: all 200ms cubic-bezier(0.22,1,0.36,1); border: 0; }
+  .btn-primary { background: var(--wlh-sun-yellow); color: var(--wlh-deep-petrol); padding: 12px 24px; border-radius: 999px; box-shadow: var(--sh-glow-yellow); }
+  .btn-secondary { background: transparent; color: var(--wlh-deep-petrol); padding: 12px 24px; border-radius: 999px; border: 1.5px solid var(--wlh-deep-petrol); }
+  .btn-tertiary { background: var(--wlh-deep-petrol); color: var(--wlh-sun-yellow); padding: 12px 24px; border-radius: 999px; }
+  .btn-ghost { background: transparent; color: var(--wlh-deep-petrol); padding: 12px 18px; }
+  .btn-sm { padding: 8px 16px; font-size: 13px; }
+  .btn-lg { padding: 16px 32px; font-size: 16px; }
+</style></head>
+<body><div class="frame">
+  <div class="row"><span class="label">Sizes</span>
+    <button class="btn btn-primary btn-sm">Reservar</button>
+    <button class="btn btn-primary">Reservar agora</button>
+    <button class="btn btn-primary btn-lg">Reservar agora</button>
+  </div>
+  <div class="row"><span class="label">Variants</span>
+    <button class="btn btn-primary">Reservar</button>
+    <button class="btn btn-secondary">Salvar</button>
+    <button class="btn btn-tertiary">Ver detalhes</button>
+    <button class="btn btn-ghost">Cancelar</button>
+  </div>
+</div></body></html>

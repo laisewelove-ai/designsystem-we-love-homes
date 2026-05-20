@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--wlh-sand-cream);color:var(--wlh-deep-petrol);}
+  .frame{padding:24px;display:flex;flex-direction:column;gap:20px;}
+  h2{font-family:var(--font-heading);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 6px;}
+  h2 small{font-weight:500;opacity:0.55;letter-spacing:0.06em;text-transform:none;margin-left:6px;}
+  .card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;}
+  .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+  .col{display:flex;flex-direction:column;gap:12px;}
+
+  /* Buttons */
+  .btn{font-family:var(--font-heading);font-weight:600;font-size:14px;padding:12px 22px;border-radius:999px;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;line-height:1;}
+  .btn.primary{background:var(--wlh-sun-yellow);color:var(--wlh-deep-petrol);box-shadow:0 6px 18px rgba(255,197,51,0.4);}
+  .btn.primary:hover{background:#F0B523;}
+  .btn.secondary{background:var(--wlh-deep-petrol);color:var(--wlh-sand-cream);}
+  .btn.tertiary{background:transparent;color:var(--wlh-deep-petrol);border:1.5px solid var(--wlh-deep-petrol);}
+  .btn.ghost{background:transparent;color:var(--wlh-deep-petrol);}
+  .btn.ghost:hover{background:rgba(31,58,77,0.06);}
+  .btn.danger{background:#C13B2E;color:#fff;}
+  .btn.disabled{background:#E8DEC8;color:#A09784;cursor:not-allowed;box-shadow:none;}
+  .btn.sm{font-size:12px;padding:8px 14px;}
+  .btn.lg{font-size:16px;padding:16px 28px;}
+
+  /* Inputs */
+  .field{display:flex;flex-direction:column;gap:6px;width:100%;max-width:280px;}
+  .field label{font-family:var(--font-heading);font-size:11px;font-weight:600;letter-spacing:0.06em;color:var(--wlh-deep-petrol);}
+  .input{font-family:var(--font-body);font-size:14px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--border);background:#FAF1DE;color:var(--wlh-deep-petrol);outline:none;transition:box-shadow 0.2s, border-color 0.2s;}
+  .input:focus{border-color:var(--wlh-sun-yellow);background:#fff;box-shadow:0 0 0 3px rgba(255,197,51,0.25);}
+  .input.filled{border-color:var(--wlh-cactus-green);background:#fff;box-shadow:0 0 0 3px rgba(90,138,107,0.18), 0 8px 22px rgba(90,138,107,0.32);}
+  .input.error{border-color:#C13B2E;background:#FFF0EE;box-shadow:0 0 0 3px rgba(193,59,46,0.18);}
+  .help{font-family:var(--font-body);font-size:11px;color:var(--fg-muted);}
+  .help.err{color:#C13B2E;}
+  .field.with-icon{position:relative;}
+  .field.with-icon .input{padding-left:38px;}
+  .field.with-icon svg{position:absolute;left:12px;top:34px;}
+
+  /* Toggle */
+  .toggle{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:13px;cursor:pointer;}
+  .toggle .track{width:40px;height:22px;background:#E8DEC8;border-radius:999px;position:relative;transition:background 0.18s;}
+  .toggle .track::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;background:#fff;border-radius:50%;transition:transform 0.18s;box-shadow:0 1px 3px rgba(0,0,0,0.2);}
+  .toggle.on .track{background:var(--wlh-sun-yellow);}
+  .toggle.on .track::after{transform:translateX(18px);}
+
+  /* Checkbox & radio */
+  .check,.radio{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:13px;cursor:pointer;}
+  .check .box{width:18px;height:18px;border:1.5px solid var(--wlh-deep-petrol);border-radius:5px;display:flex;align-items:center;justify-content:center;}
+  .check.on .box{background:var(--wlh-deep-petrol);}
+  .check.on .box::after{content:"✓";color:var(--wlh-sun-yellow);font-size:13px;font-weight:700;}
+  .radio .dot{width:18px;height:18px;border:1.5px solid var(--wlh-deep-petrol);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+  .radio.on .dot::after{content:"";width:9px;height:9px;background:var(--wlh-deep-petrol);border-radius:50%;}
+
+  /* Tags / pills */
+  .tag{font-family:var(--font-heading);font-size:11px;font-weight:600;padding:6px 11px;border-radius:999px;display:inline-flex;align-items:center;gap:5px;}
+  .tag.yellow{background:var(--wlh-sun-yellow);color:var(--wlh-deep-petrol);}
+  .tag.lemon{background:var(--wlh-pale-lemon);color:var(--wlh-deep-petrol);}
+  .tag.cactus{background:#E4EDE6;color:var(--wlh-cactus-green);}
+  .tag.sky{background:var(--wlh-sky-wash);color:var(--wlh-deep-petrol);}
+  .tag.petrol{background:var(--wlh-deep-petrol);color:var(--wlh-sand-cream);}
+  .tag.outline{background:transparent;border:1.5px solid var(--wlh-deep-petrol);color:var(--wlh-deep-petrol);}
+
+  /* Avatar */
+  .av{width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:14px;color:var(--wlh-deep-petrol);}
+  .av.lg{width:56px;height:56px;font-size:18px;}
+  .av.sm{width:28px;height:28px;font-size:11px;}
+
+  .label-sm{font-family:var(--font-heading);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-muted);margin-bottom:8px;}
+</style></head>
+<body><div class="frame">
+
+<section>
+  <h2>3.1 · Botões</h2>
+  <div class="card col">
+    <div class="label-sm">Hierarquia</div>
+    <div class="row">
+      <button class="btn primary">Reservar agora</button>
+      <button class="btn secondary">Ver detalhes</button>
+      <button class="btn tertiary">Salvar</button>
+      <button class="btn ghost">Cancelar</button>
+      <button class="btn danger">Excluir</button>
+      <button class="btn primary disabled">Indisponível</button>
+    </div>
+    <div class="label-sm" style="margin-top:8px;">Tamanhos</div>
+    <div class="row">
+      <button class="btn primary sm">Pequeno</button>
+      <button class="btn primary">Padrão</button>
+      <button class="btn primary lg">Grande</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>3.2 · Campos de formulário</h2>
+  <div class="card">
+    <div class="row" style="gap:20px;">
+      <div class="field">
+        <label>Nome completo</label>
+        <input class="input filled" value="Mariana Costa">
+        <div class="help" style="color:var(--wlh-cactus-green);">✓ Preenchido</div>
+      </div>
+      <div class="field with-icon">
+        <label>Buscar destino</label>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5A6F7E" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input class="input" placeholder="Para onde vai?">
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input class="input error" value="email-invalido">
+        <div class="help err">Inclua um endereço válido</div>
+      </div>
+      <div class="field">
+        <label>Mensagem</label>
+        <textarea class="input filled" rows="3" style="resize:vertical;">Olá, gostaria de saber se a casa estará disponível...</textarea>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>3.3 · Controles</h2>
+  <div class="card row" style="gap:32px;">
+    <div class="col" style="gap:10px;">
+      <div class="label-sm">Toggles</div>
+      <div class="toggle on"><span class="track"></span>Notificar reservas</div>
+      <div class="toggle"><span class="track"></span>Modo escuro</div>
+    </div>
+    <div class="col" style="gap:10px;">
+      <div class="label-sm">Checkboxes</div>
+      <div class="check on"><span class="box"></span>Aceito termos</div>
+      <div class="check"><span class="box"></span>Receber novidades</div>
+    </div>
+    <div class="col" style="gap:10px;">
+      <div class="label-sm">Radios</div>
+      <div class="radio on"><span class="dot"></span>Casa inteira</div>
+      <div class="radio"><span class="dot"></span>Quarto privativo</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>3.4 · Tags & badges</h2>
+  <div class="card row" style="gap:8px;">
+    <span class="tag yellow">★ Superhost</span>
+    <span class="tag lemon">Novo</span>
+    <span class="tag cactus">Eco-friendly</span>
+    <span class="tag sky">Praia</span>
+    <span class="tag petrol">Verificado</span>
+    <span class="tag outline">+ 3</span>
+  </div>
+</section>
+
+<section>
+  <h2>3.5 · Avatares</h2>
+  <div class="card row" style="gap:14px;">
+    <div class="av lg" style="background:var(--wlh-sun-yellow);">MC</div>
+    <div class="av lg" style="background:var(--wlh-cactus-green);color:#fff;">JR</div>
+    <div class="av" style="background:var(--wlh-sky-wash);">AS</div>
+    <div class="av" style="background:var(--wlh-pale-lemon);">PL</div>
+    <div class="av sm" style="background:var(--wlh-deep-petrol);color:var(--wlh-sun-yellow);">+5</div>
+  </div>
+</section>
+
+</div></body></html>

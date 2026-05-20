@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>WLH App</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body { margin: 0; background: #1a1838; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .device-shell {
+    width: 390px; height: 844px;
+    background: var(--wlh-off-white);
+    border-radius: 48px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.4), 0 0 0 12px #0a0a14, 0 0 0 13px #2a2a40;
+    display: flex; flex-direction: column;
+  }
+  .status-bar {
+    height: 50px; flex-shrink: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0 32px;
+    font-family: var(--font-heading); font-weight: 600; font-size: 15px;
+    color: var(--fg);
+  }
+  .notch {
+    position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+    width: 110px; height: 32px; background: #0a0a14; border-radius: 20px;
+    z-index: 10;
+  }
+  .home-indicator {
+    position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+    width: 134px; height: 5px; background: #0a0a14; border-radius: 3px;
+    z-index: 10;
+  }
+  .app-frame { flex: 1; display: flex; flex-direction: column; min-height: 0; position: relative; overflow: hidden; }
+</style>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="device-shell">
+  <div class="notch"></div>
+  <div class="status-bar">
+    <span>9:41</span>
+    <span>•••</span>
+  </div>
+  <div class="app-frame" id="root"></div>
+  <div class="home-indicator"></div>
+</div>
+
+<script type="text/babel" src="AppScreens.jsx"></script>
+<script type="text/babel">
+function App() {
+  const [screen, setScreen] = React.useState("home");
+  const [tab, setTab] = React.useState("home");
+  const [picked, setPicked] = React.useState(null);
+
+  React.useEffect(() => {
+    if (window.lucide) window.lucide.createIcons();
+  });
+
+  let body;
+  if (screen === "home") {
+    if (tab === "trips") body = <TripScreen listing={picked || APP_LISTINGS[0]} />;
+    else body = <HomeScreen onPick={l => { setPicked(l); setScreen("listing"); }} />;
+  } else if (screen === "listing") {
+    body = <ListingScreen listing={picked} onBack={() => setScreen("home")} onReserve={() => setScreen("confirmed")} />;
+  } else if (screen === "confirmed") {
+    body = <ConfirmedScreen listing={picked} onDone={() => { setScreen("home"); setTab("trips"); }} />;
+  }
+
+  return (
+    <div className="app-screen">
+      {body}
+      {screen === "home" ? <AppTabBar active={tab} onTab={setTab} /> : null}
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

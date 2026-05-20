@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--wlh-sand-cream); color: var(--wlh-deep-petrol); }
+  .frame {
+    padding: 22px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .cell {
+    border-radius: 18px;
+    padding: 18px 14px 14px;
+    display: flex; flex-direction: column; align-items: stretch; justify-content: space-between;
+    min-height: 280px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cell .img-wrap {
+    flex: 1;
+    display: grid;
+    place-items: center;
+    padding: 6px 4px;
+  }
+  .cell img {
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+    display: block;
+  }
+  .cell .label {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-align: center;
+  }
+  .cell.bg-cream  { background: #FAF1DE; border: 1px solid var(--border); }
+  .cell.bg-petrol { background: #1F3A4D; }
+
+  .cream  .label { color: #1F3A4D; }
+  .petrol .label { color: #FFC533; }
+</style></head>
+<body>
+<div class="frame">
+
+  <div class="cell bg-cream cream">
+    <div class="img-wrap">
+      <img src="../assets/logos/seal-vertical-wordmark-yellow.png" alt="Logo vertical, wordmark sun yellow">
+    </div>
+    <div class="label">Sun yellow</div>
+  </div>
+
+  <div class="cell bg-cream cream">
+    <div class="img-wrap">
+      <img src="../assets/logos/seal-vertical-wordmark-petrol.png" alt="Logo vertical, wordmark deep petrol">
+    </div>
+    <div class="label">Deep petrol</div>
+  </div>
+
+  <div class="cell bg-cream cream">
+    <div class="img-wrap">
+      <img src="../assets/logos/seal-vertical-wordmark-cactus.png" alt="Logo vertical, wordmark cactus green">
+    </div>
+    <div class="label">Cactus green</div>
+  </div>
+
+  <div class="cell bg-petrol petrol">
+    <div class="img-wrap">
+      <img src="../assets/logos/seal-vertical-wordmark-white.png" alt="Logo vertical, wordmark white">
+    </div>
+    <div class="label">Branco · sobre escuro</div>
+  </div>
+
+</div>
+</body></html>

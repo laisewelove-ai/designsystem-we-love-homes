@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>WLH — Paletas com amarelo principal</title>
+<link rel="stylesheet" href="colors_and_type.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  body { margin: 0; font-family: var(--font-body); background: #1a1838; }
+  .palette-board { width: 720px; padding: 32px; background: var(--wlh-off-white); }
+  .pal-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 6px; }
+  .pal-name { font-family: var(--font-heading); font-size: 24px; font-weight: 800; color: var(--wlh-navy-dark); margin: 0; letter-spacing: -0.02em; }
+  .pal-tag { font-family: var(--font-heading); font-size: 11px; font-weight: 600; color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.12em; }
+  .pal-desc { font-size: 14px; color: var(--fg-muted); margin: 0 0 22px; line-height: 1.5; }
+
+  .swatch-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .swatch-row.support { grid-template-columns: repeat(5, 1fr); }
+  .swatch { border-radius: 14px; padding: 14px; min-height: 90px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 2px 6px rgba(36,34,88,0.08); border: 1px solid rgba(36,34,88,0.06); }
+  .swatch.s-small { min-height: 64px; padding: 10px 12px; }
+  .swatch .sw-name { font-family: var(--font-heading); font-size: 13px; font-weight: 700; line-height: 1.2; }
+  .swatch.s-small .sw-name { font-size: 11px; }
+  .swatch .sw-hex { font-family: ui-monospace, Menlo, monospace; font-size: 10px; opacity: 0.75; }
+
+  .role-label { font-family: var(--font-heading); font-size: 10px; font-weight: 700; color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.12em; margin: 14px 0 6px; }
+
+  .preview-card { margin-top: 22px; border-radius: 20px; padding: 26px 28px; position: relative; overflow: hidden; }
+  .pv-eyebrow { font-family: var(--font-heading); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; }
+  .pv-title { font-family: var(--font-heading); font-weight: 800; font-size: 38px; line-height: 1.0; letter-spacing: -0.02em; margin: 6px 0 14px; }
+  .pv-script { font-family: var(--font-display); font-weight: 400; font-size: 1.05em; }
+  .pv-sub { font-size: 14px; line-height: 1.5; opacity: 0.85; max-width: 360px; margin: 0 0 18px; }
+  .pv-cta { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-weight: 700; font-size: 14px; padding: 12px 22px; border-radius: 999px; border: 0; cursor: pointer; }
+  .pv-stat { display: flex; align-items: baseline; gap: 12px; margin-top: 18px; }
+  .pv-num { font-family: var(--font-display); font-size: 64px; line-height: 0.9; }
+  .pv-unit { font-family: var(--font-heading); font-size: 14px; opacity: 0.75; }
+</style>
+</head>
+<body>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<div id="root"></div>
+<script type="text/babel">
+const { DesignCanvas, DCSection, DCArtboard } = window;
+
+function PaletteBoard({ name, tag, desc, primary, ink, bg, support, semantic, ctaText="Reservar agora", ctaBg, ctaFg }) {
+  return (
+    <div className="palette-board" style={{ background: bg.hex }}>
+      <div className="pal-head">
+        <h2 className="pal-name" style={{ color: ink.hex }}>{name}</h2>
+        <span className="pal-tag" style={{ color: ink.hex, opacity: 0.55 }}>{tag}</span>
+      </div>
+      <p className="pal-desc" style={{ color: ink.hex, opacity: 0.75 }}>{desc}</p>
+
+      <div className="role-label">Cores principais (60-30-10)</div>
+      <div className="swatch-row">
+        <div className="swatch" style={{ background: primary.hex, color: primary.fg }}>
+          <span className="sw-name">{primary.name} · principal</span>
+          <span className="sw-hex">{primary.hex}</span>
+        </div>
+        <div className="swatch" style={{ background: ink.hex, color: ink.fg }}>
+          <span className="sw-name">{ink.name} · ink</span>
+          <span className="sw-hex">{ink.hex}</span>
+        </div>
+        <div className="swatch" style={{ background: bg.hex, color: ink.hex, border: "1px solid rgba(36,34,88,0.12)" }}>
+          <span className="sw-name">{bg.name} · fundo</span>
+          <span className="sw-hex">{bg.hex}</span>
+        </div>
+      </div>
+
+      <div className="role-label">Cores de apoio</div>
+      <div className="swatch-row support">
+        {support.map(s => (
+          <div key={s.hex} className="swatch s-small" style={{ background: s.hex, color: s.fg }}>
+            <span className="sw-name">{s.name}</span>
+            <span className="sw-hex">{s.hex}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="role-label">Semânticas</div>
+      <div className="swatch-row support">
+        {semantic.map(s => (
+          <div key={s.hex} className="swatch s-small" style={{ background: s.hex, color: s.fg }}>
+            <span className="sw-name">{s.name}</span>
+            <span className="sw-hex">{s.hex}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="preview-card" style={{ background: primary.hex, color: primary.fg }}>
+        <span className="pv-eyebrow" style={{ color: primary.fg, opacity: 0.7 }}>Bairro Lastarria</span>
+        <div className="pv-title">
+          Sua casa<br/><span className="pv-script" style={{ color: ctaBg }}>em Santiago</span>
+        </div>
+        <p className="pv-sub">A gente entrega a chave. Você entrega o coração.</p>
+        <button className="pv-cta" style={{ background: ctaBg, color: ctaFg }}>{ctaText} →</button>
+        <div className="pv-stat">
+          <span className="pv-num" style={{ color: ctaBg }}>R$ 480</span>
+          <span className="pv-unit">/ noite · 4,9 ★</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─────────── PALETA 1 — Mostarda quente ───────────
+const PAL_1 = {
+  name: "Mostarda Quente",
+  tag: "Opção 1 · acolhedora",
+  desc: "Amarelo dourado profundo (mostarda) como herói, navy mantido como ink, terracota e teal pra equilibrar. A vibe mais próxima da identidade atual — só trocando o coral pelo amarelo.",
+  primary: { name: "Mustard Yellow", hex: "#F5B400", fg: "#242258" },
+  ink:     { name: "Navy Dark", hex: "#242258", fg: "#FFFFFF" },
+  bg:      { name: "Off-White", hex: "#F5EFE8", fg: "#242258" },
+  support: [
+    { name: "Honey",      hex: "#FFD24A", fg: "#242258" },
+    { name: "Terracotta", hex: "#EB6952", fg: "#FFFFFF" },
+    { name: "Teal Dark",  hex: "#027071", fg: "#FFFFFF" },
+    { name: "Powder Aqua",hex: "#9FD9D8", fg: "#242258" },
+    { name: "Plum",       hex: "#7C287B", fg: "#FFFFFF" },
+  ],
+  semantic: [
+    { name: "Success",  hex: "#379D01", fg: "#FFFFFF" },
+    { name: "Warning",  hex: "#FA8F10", fg: "#FFFFFF" },
+    { name: "Danger",   hex: "#B30000", fg: "#FFFFFF" },
+    { name: "Info",     hex: "#90B8D2", fg: "#242258" },
+    { name: "Neutral",  hex: "#E3DCD1", fg: "#242258" },
+  ],
+  ctaBg: "#242258", ctaFg: "#F5B400",
+};
+
+// ─────────── PALETA 2 — Sol e Areia ───────────
+const PAL_2 = {
+  name: "Sol & Areia",
+  tag: "Opção 2 · solar e fresca",
+  desc: "Amarelo mais claro e luminoso, fundo creme quente, ink num azul-petróleo profundo. Lembra um fim de tarde no deserto do Atacama. Mais moderna, menos retrô.",
+  primary: { name: "Sun Yellow", hex: "#FFC533", fg: "#1F3A4D" },
+  ink:     { name: "Deep Petrol", hex: "#1F3A4D", fg: "#FFFFFF" },
+  bg:      { name: "Sand Cream",  hex: "#FAF1DE", fg: "#1F3A4D" },
+  support: [
+    { name: "Pale Lemon",  hex: "#FFE99A", fg: "#1F3A4D" },
+    { name: "Coral Soft",  hex: "#F08C6E", fg: "#FFFFFF" },
+    { name: "Cactus Green",hex: "#5A8A6B", fg: "#FFFFFF" },
+    { name: "Sky Wash",    hex: "#B5D4DD", fg: "#1F3A4D" },
+    { name: "Clay Pink",   hex: "#E5B7A8", fg: "#1F3A4D" },
+  ],
+  semantic: [
+    { name: "Success",  hex: "#3F8D5A", fg: "#FFFFFF" },
+    { name: "Warning",  hex: "#E89028", fg: "#FFFFFF" },
+    { name: "Danger",   hex: "#C13B2E", fg: "#FFFFFF" },
+    { name: "Info",     hex: "#5C8AA6", fg: "#FFFFFF" },
+    { name: "Neutral",  hex: "#E8DEC8", fg: "#1F3A4D" },
+  ],
+  ctaBg: "#1F3A4D", ctaFg: "#FFC533",
+};
+
+// ─────────── PALETA 3 — Limão Elétrico ───────────
+const PAL_3 = {
+  name: "Limão Elétrico",
+  tag: "Opção 3 · ousada e jovem",
+  desc: "Amarelo vibrante quase fluo, contrastado com um roxo profundo de ink. Energia jovem, urbana — pra quem quer destacar a marca como moderna e diferente do mercado.",
+  primary: { name: "Electric Lemon", hex: "#FFE53D", fg: "#2A1B4D" },
+  ink:     { name: "Deep Indigo", hex: "#2A1B4D", fg: "#FFFFFF" },
+  bg:      { name: "Bone White",  hex: "#FFFBF0", fg: "#2A1B4D" },
+  support: [
+    { name: "Punch Pink", hex: "#FF4D88", fg: "#FFFFFF" },
+    { name: "Hot Coral",  hex: "#FF6B4A", fg: "#FFFFFF" },
+    { name: "Mint Pop",   hex: "#7FE6C7", fg: "#2A1B4D" },
+    { name: "Lilac",      hex: "#B89BF0", fg: "#2A1B4D" },
+    { name: "Charcoal",   hex: "#3D2E5E", fg: "#FFFFFF" },
+  ],
+  semantic: [
+    { name: "Success",  hex: "#27B26F", fg: "#FFFFFF" },
+    { name: "Warning",  hex: "#FF9F2E", fg: "#FFFFFF" },
+    { name: "Danger",   hex: "#E63946", fg: "#FFFFFF" },
+    { name: "Info",     hex: "#6C8EE6", fg: "#FFFFFF" },
+    { name: "Neutral",  hex: "#EDE6F5", fg: "#2A1B4D" },
+  ],
+  ctaBg: "#2A1B4D", ctaFg: "#FFE53D",
+};
+
+function App() {
+  return (
+    <DesignCanvas title="Paletas WLH — Amarelo principal" subtitle="3 direções para escolher">
+      <DCSection id="opts" title="Propostas de paleta">
+        <DCArtboard id="p1" label="1 · Mostarda Quente" width={720} height={920}>
+          <PaletteBoard {...PAL_1} />
+        </DCArtboard>
+        <DCArtboard id="p2" label="2 · Sol & Areia" width={720} height={920}>
+          <PaletteBoard {...PAL_2} />
+        </DCArtboard>
+        <DCArtboard id="p3" label="3 · Limão Elétrico" width={720} height={920}>
+          <PaletteBoard {...PAL_3} />
+        </DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

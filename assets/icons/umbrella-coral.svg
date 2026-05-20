@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="1000" height="1000">
+    <g>
+      
+      <path d="M20 110 Q20 40 100 40 Q180 40 180 110 Z" fill="#E85A4F"></path>
+      <path d="M20 110 Q20 40 100 40 L100 110 Z" fill="#C13B2E"></path>
+      
+      <path d="M100 110&#xA;               L100 154&#xA;               Q100 180 76 180&#xA;               Q60 180 60 164&#xA;               L72 164&#xA;               Q72 168 78 168&#xA;               Q88 168 88 154&#xA;               L88 110 Z" fill="#1F3A4D"></path>
+    </g>
+  </svg>

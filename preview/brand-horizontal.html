@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--wlh-sand-cream); color: var(--wlh-deep-petrol); }
+  .frame {
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .row {
+    border-radius: 18px;
+    padding: 22px 26px;
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    align-items: center;
+    gap: 24px;
+    min-height: 120px;
+  }
+  .row .label {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    line-height: 1.4;
+  }
+  .row .label small {
+    display: block;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    opacity: 0.55;
+    font-size: 9px;
+    margin-top: 4px;
+    text-transform: none;
+  }
+  .row img {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    display: block;
+    justify-self: end;
+  }
+
+  .row.cream  { background: #FAF1DE; border: 1px solid var(--border); }
+  .row.petrol { background: #1F3A4D; }
+
+  .cream  .label { color: #1F3A4D; }
+  .petrol .label { color: #FFC533; }
+</style></head>
+<body>
+<div class="frame">
+
+  <div class="row cream">
+    <div class="label">Sun yellow<small>horizontal-wordmark-yellow.png</small></div>
+    <img src="../assets/logos/horizontal-wordmark-yellow.png" alt="Horizontal logo, sun yellow wordmark">
+  </div>
+
+  <div class="row cream">
+    <div class="label">Deep petrol<small>horizontal-wordmark-petrol.png</small></div>
+    <img src="../assets/logos/horizontal-wordmark-petrol.png" alt="Horizontal logo, deep petrol wordmark">
+  </div>
+
+  <div class="row cream">
+    <div class="label">Cactus green<small>horizontal-wordmark-cactus.png</small></div>
+    <img src="../assets/logos/horizontal-wordmark-cactus.png" alt="Horizontal logo, cactus green wordmark">
+  </div>
+
+  <div class="row petrol">
+    <div class="label">Branco · sobre escuro<small>horizontal-wordmark-white.png</small></div>
+    <img src="../assets/logos/horizontal-wordmark-white.png" alt="Horizontal logo, white wordmark">
+  </div>
+
+</div>
+</body></html>

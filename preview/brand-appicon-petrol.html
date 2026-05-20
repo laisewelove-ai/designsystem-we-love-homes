@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin:0; padding:0; background: var(--wlh-sand-cream); color: var(--wlh-deep-petrol); font-family: var(--font-body, system-ui, sans-serif); }
+  .stage { min-height:100vh; display:grid; grid-template-rows: 1fr auto; padding: 28px 24px 22px; gap: 18px; box-sizing:border-box; }
+  .icon-stage { display:grid; place-items:center; }
+  .squircle {
+    width: min(72%, 280px);
+    aspect-ratio: 1 / 1;
+    border-radius: 24%;
+    display: grid; place-items: center;
+    padding: 14%;
+    background: var(--wlh-deep-petrol);
+    
+    box-shadow: 0 12px 32px -14px rgba(31,58,77,0.30), 0 2px 0 rgba(255,255,255,0.04) inset;
+    box-sizing: border-box;
+  }
+  .squircle img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .meta { display:flex; align-items:center; justify-content:space-between; gap:12px; padding: 0 4px; }
+  .meta .left { display:flex; flex-direction:column; gap:3px; }
+  .tag {
+    font-family: var(--font-heading);
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--wlh-deep-petrol);
+  }
+  .role {
+    font-family: var(--font-body, system-ui, sans-serif);
+    font-size: 10px; color: rgba(31,58,77,0.55);
+    letter-spacing: 0.02em;
+  }
+  .swatch {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 9px; color: rgba(31,58,77,0.5);
+    letter-spacing: 0.04em;
+  }
+</style></head>
+<body>
+<div class="stage">
+  <div class="icon-stage">
+    <div class="squircle"><img src="../assets/logos/seal-vertical-wordmark-yellow.png" alt="Petrol + Sun"></div>
+  </div>
+  <div class="meta">
+    <div class="left">
+      <span class="tag">Petrol + Sun</span>
+      <span class="role">institucional</span>
+    </div>
+    <span class="swatch">#1F3A4D</span>
+  </div>
+</div>
+</body></html>

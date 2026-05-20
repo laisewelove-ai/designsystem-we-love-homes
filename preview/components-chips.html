@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head><meta charset="UTF-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html, body { margin:0; padding:0; background: var(--wlh-sand-cream); }
+  .frame { padding: 22px 24px; display:flex; flex-direction:column; gap:14px; }
+  .row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .label { font-family: var(--font-heading); font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color: var(--fg-muted); font-weight:600; width: 90px; }
+  .chip { display:inline-flex; align-items:center; gap:6px; padding: 7px 14px; border-radius: 999px; font-family: var(--font-heading); font-size: 13px; font-weight: 600; }
+  .chip-aqua { background: var(--wlh-sky-wash); color: var(--wlh-deep-petrol); }
+  .chip-coral { background: var(--wlh-clay-pink); color: var(--wlh-deep-petrol); }
+  .chip-yellow { background: var(--wlh-sun-yellow); color: var(--wlh-deep-petrol); }
+  .chip-purple { background: var(--wlh-deep-petrol); color: var(--wlh-sun-yellow); }
+  .chip-outline { background: transparent; border: 1.5px solid var(--wlh-deep-petrol); color: var(--wlh-deep-petrol); }
+  .chip img { width: 16px; height: 16px; object-fit: contain; }
+</style></head>
+<body><div class="frame">
+  <div class="row"><span class="label">Filters</span>
+    <span class="chip chip-outline">Santiago</span>
+    <span class="chip chip-outline">2 hóspedes</span>
+    <span class="chip chip-outline">+ filtros</span>
+  </div>
+  <div class="row"><span class="label">Tags</span>
+    <span class="chip chip-aqua">Anfitrião verificado</span>
+    <span class="chip chip-yellow">Mais reservado</span>
+    <span class="chip chip-purple">Premium</span>
+    <span class="chip chip-coral">Novidade</span>
+  </div>
+  <div class="row"><span class="label">With icon</span>
+    <span class="chip chip-aqua"><img src="../assets/icons/coffee-cup.svg">Café na chegada</span>
+    <span class="chip chip-aqua"><img src="../assets/icons/key-checkin.svg">Check-in flex</span>
+    <span class="chip chip-aqua"><img src="../assets/icons/plant.svg">Pet friendly</span>
+  </div>
+</div></body></html>
